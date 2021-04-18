@@ -1,6 +1,6 @@
 {
   "name": "react-aptor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "React API connector",
   "main": "lib/index.js",
@@ -59,9 +59,9 @@
     "@babel/preset-env": "7.13.12",
     "@babel/preset-react": "7.13.13",
     "@babel/preset-typescript": "7.13.0",
+    "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "4.21.0",
     "@typescript-eslint/parser": "4.21.0",
-    "@types/react": "^17.0.0",
     "babel-core": "6.26.3",
     "babel-eslint": "10.1.0",
     "babel-loader": "8.2.2",
