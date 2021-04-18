@@ -8,7 +8,8 @@
   "sideEffects": false,
   "files": [
     "lib/",
-    "esm/"
+    "esm/",
+    "src/"
   ],
   "types": "lib/index.d.ts",
   "typings": "lib/index.d.ts",
