@@ -1,0 +1,41 @@
+import { useEffect, useImperativeHandle, useState, useRef, ForwardedRef, RefObject } from 'react';
+
+// types:misc
+type Nullable<T> = T | null;
+// types:api
+export type SingleAPI = (...args: any[]) => any;
+export type APIObject = { [apiName: string]: SingleAPI };
+export type APIGenerator = () => APIObject;
+export type GetAPI<T> = (instance: Nullable<T>, prams?: any) => APIGenerator;
+// types:configuration
+export type Instantiate<T> = (node: Nullable<HTMLElement>, params?: any) => Nullable<T>;
+export interface AptorConfiguration<T> {
+  getAPI: GetAPI<T>;
+  instantiate: Instantiate<T>;
+  params?: any;
+}
+
+/**
+ * react aptor(api-connector) a hook which connect api to react itself
+ * @param ref - react forwarded ref
+ * @param {Object} configuration - configuration object for setup
+ * @return domRef - can be bound to dom element
+ */
+export default function useAptor<T>(
+  ref: ForwardedRef<APIObject>,
+  configuration: AptorConfiguration<T>
+): RefObject<HTMLElement> {
+  const [instance, setInstance] = useState<Nullable<T>>(null);
+  const domRef = useRef<Nullable<HTMLElement>>(null);
+  const { instantiate, getAPI, params } = configuration;
+
+  useEffect(() => {
+    setInstance(instantiate(domRef.current, params));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useImperativeHandle(ref, getAPI(instance, params), [instance]);
+
+  return domRef;
+}
