@@ -1,0 +1,9 @@
+# linters
+.prettierrc*
+.eslintrc*
+
+# editor settings
+.vscode
+.idea
+
+.github
