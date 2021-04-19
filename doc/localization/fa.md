@@ -103,11 +103,13 @@ forwardRef` تعریف کنید و forwarded-ref به همراه توابع تع
 💻 توسعه‌دهنده (**بیت‌کوین**):
 `bc1qq8qq63ex7svkkjdjn5axu8angfxytvs83nlujk`
 
+<a href="https://idpay.ir/amirhe"><img width="150" src="https://static.idpay.ir/logo/logo.svg"></a>
+
 ## مثال‌ها
 
 ### `typescript` + [Quill.js](https://github.com/quilljs/quill)
 
-[مثال نحوه اتصال quilljs به react](https://codesandbox.io/s/react-aptor--quill-iqwcd)
+[مثال نحوه اتصال quill به react](https://codesandbox.io/s/react-aptor--quill-iqwcd)
 
 ### [Fabric.js](http://fabricjs.com/)
 
@@ -116,5 +118,8 @@ forwardRef` تعریف کنید و forwarded-ref به همراه توابع تع
 ### [Rive.js](https://rive.app)
 
 [مثال نحوه اتصال rive به react](https://stackblitz.com/edit/react-aptor-rivejs)
+
+### [Howler.js]
+[مثال نحوه اتصال howler به react](https://codesandbox.io/s/react-aptor--howler-4o8t4)
 
 </div>
