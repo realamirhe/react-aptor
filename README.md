@@ -148,12 +148,18 @@ The project was developed by typescript, see samples for more info.
 
 ## Samples
 
-### [Quilljs](https://github.com/quilljs/quill) + `typescript`
+### [Quill.js](https://github.com/quilljs/quill) + `typescript`
 
 > Quill is a free, open source WYSIWYG editor built for the modern web.  
 > <a href="https://codesandbox.io/s/react-aptor--quill-iqwcd"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
 
-### [FabricJs](http://fabricjs.com/)
+### [Fabric.js](http://fabricjs.com)
 
 > Fabric.js is a powerful and simple. Javascript HTML5 canvas library  
 > <a href="https://codesandbox.io/s/react-aptor--fabric-hp50c"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
+
+### [Rive.js](https://rive.app)
+
+> Create and ship beautiful animations to any platform  
+> <a href="https://stackblitz.com/edit/react-aptor-rivejs"><img width="165" src="https://developer.stackblitz.com/img/logo.svg"></a>
+
