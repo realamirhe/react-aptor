@@ -150,16 +150,23 @@ The project was developed by typescript, see samples for more info.
 
 ### [Quill.js](https://github.com/quilljs/quill) + `typescript`
 
-> Quill is a free, open source WYSIWYG editor built for the modern web.  
+> Quill is a free, open source WYSIWYG editor built for the modern web. <img src="https://img.shields.io/github/stars/quilljs/quill?style=social" />  
 > <a href="https://codesandbox.io/s/react-aptor--quill-iqwcd"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
 
 ### [Fabric.js](http://fabricjs.com)
 
-> Fabric.js is a powerful and simple. Javascript HTML5 canvas library  
+> Fabric.js is a powerful and simple. Javascript HTML5 canvas library. <img src="https://img.shields.io/github/stars/fabricjs/fabric.js?style=social" />  
 > <a href="https://codesandbox.io/s/react-aptor--fabric-hp50c"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
 
 ### [Rive.js](https://rive.app)
 
-> Create and ship beautiful animations to any platform  
+> Create and ship beautiful animations to any platform. <img src="https://img.shields.io/github/stars/rive-app/rive-wasm?style=social" />  
 > <a href="https://stackblitz.com/edit/react-aptor-rivejs"><img width="165" src="https://developer.stackblitz.com/img/logo.svg"></a>
+
+
+### [Howler.js](https://howlerjs.com) 
+
+> Audio library for the modern web. <img src="https://img.shields.io/github/stars/goldfire/howler.js?style=social" />  
+> <a href="https://codesandbox.io/s/react-aptor--howler-4o8t4"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
+
 
