@@ -105,12 +105,16 @@ forwardRef` تعریف کنید و forwarded-ref به همراه توابع تع
 
 ## مثال‌ها
 
-### `typescript` + [Quilljs](https://github.com/quilljs/quill)
+### `typescript` + [Quill.js](https://github.com/quilljs/quill)
 
 [مثال نحوه اتصال quilljs به react](https://codesandbox.io/s/react-aptor--quill-iqwcd)
 
-### [FabricJs](http://fabricjs.com/)
+### [Fabric.js](http://fabricjs.com/)
 
 [مثال نحوه اتصال fabric به react](https://codesandbox.io/s/react-aptor--fabric-hp50c)
+
+### [Rive.js](https://rive.app)
+
+[مثال نحوه اتصال rive به react](https://stackblitz.com/edit/react-aptor-rivejs)
 
 </div>
