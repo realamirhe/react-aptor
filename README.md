@@ -63,8 +63,9 @@ Connect your react app to any third party in three-step
 ```js
 // construct.js
 import Something from 'your-third-party'
-export default function instantiate(node, params) =>
-  new Something(node, options)
+export default function instantiate(node, params) {
+  return new Something(node, options)
+}
 ```
 
 This function will return an instance of the third-party package. You have access to node (DOM-node) and params.
