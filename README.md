@@ -101,7 +101,7 @@ const Connector = (props, ref) => {
   const aptorRef = useAptor(ref, {
     getAPI,
     instantiate,
-    /* params: anything */,
+    /* params: anything */
   });
 
   return <div ref={aptorRef} />;
@@ -169,4 +169,12 @@ The project was developed by typescript, see samples for more info.
 > Audio library for the modern web. <img src="https://img.shields.io/github/stars/goldfire/howler.js?style=social" />  
 > <a href="https://codesandbox.io/s/react-aptor--howler-4o8t4"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
 
+### [Reveal.js](https://revealjs.com) 
 
+> HTML presentation framework create fully featured and beautiful presentations. <img src="https://img.shields.io/github/stars/hakimel/reveal.js?style=social" />  
+> <a href="https://codesandbox.io/s/react-aptor--reveal-dwrke"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
+
+
+<p align="center">
+   <a href="./doc/samples.md"> ⭐ SEE ALL SAMPLES 🌟</a>
+</p>
