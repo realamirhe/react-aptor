@@ -122,4 +122,7 @@ forwardRef` تعریف کنید و forwarded-ref به همراه توابع تع
 ### [Howler.js]
 [مثال نحوه اتصال howler به react](https://codesandbox.io/s/react-aptor--howler-4o8t4)
 
+
+
+<p align="center"><a href="../samples.md">مشاهده تمام نمونه‌ها</a></p>
 </div>
