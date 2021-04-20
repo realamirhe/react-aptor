@@ -3,8 +3,9 @@
 <p align="center">React API Connector</p>
 
 ---
-
-[آموزش فارسی](./doc/localization/fa.md)
+<p align="right">
+   <a href="./doc/localization/fa.md">آموزش فارسی</a>
+</p>
 
 Most packages are developed separately in javascript or typescript for increasing generality to make them us in all libraries and frameworks.
 
