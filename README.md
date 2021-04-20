@@ -26,6 +26,7 @@ We strived to solve them all at once
 ### Small
 
 The unparsed project size is less than 1 kilobyte (the greatest file is 352 bytes).
+> It is also zero-dependency
 
 ### Manageable
 
