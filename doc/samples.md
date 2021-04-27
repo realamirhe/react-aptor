@@ -47,6 +47,14 @@ howler.js makes working with audio in JavaScript easy and reliable across all pl
 
 ### [Reveal.js](https://revealjs.com) 
 
-> reveal.js is an open source HTML presentation framework. It's a tool that enables anyone with a web browser to create fully-featured and beautiful presentations for free.
+> reveal.js is an open-source HTML presentation framework. It's a tool that enables anyone with a web browser to create fully-featured and beautiful presentations for free.
  
 <a href="https://codesandbox.io/s/react-aptor--reveal-dwrke"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
+
+---
+
+### [Voice recorder](https://www.npmjs.com/package/@web-lite/voice-recorder) 
+
+> A Multi platform typescript voice-recorder library for browser.
+ 
+<a href="https://codesandbox.io/s/react-aptor--weblite-voice-zgy0k"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
