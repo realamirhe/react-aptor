@@ -38,8 +38,8 @@ We strived to solve them all at once
 
 ### Small
 
-The unparsed project size is less than 1 kilobyte (the greatest file is 352 bytes).
-> It is also zero-dependency
+The unparsed project size is less than 1 kilobyte (the unparsed greatest file size is 352 bytes 😱).
+> It is also zero-dependency [See more...](https://bundlephobia.com/result?p=react-aptor)
 
 ### Manageable
 
