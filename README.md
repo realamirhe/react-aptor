@@ -1,11 +1,24 @@
 <h1 align="center">React Aptor</h1>
 <p align="center"><img src="./doc/assets/logo.svg" width="450"></p>
 <p align="center">React API Connector</p>
+<p align="center">
+  <a href="https://github.com/amirHossein-Ebrahimi/react-aptor/blob/master/license">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://npmjs.org/package/react-aptor">
+    <img src="https://img.shields.io/npm/dt/react-aptor.svg" alt="downloads" />
+  </a>
+   
+  <a href="https://bundlephobia.com/result?p=react-aptor">
+    <img src="https://img.shields.io/bundlephobia/minzip/react-aptor.svg" alt="downloads" />
+  </a>
+</p>
 
 ---
 <p align="right">
    <a href="./doc/localization/fa.md">آموزش فارسی</a>
 </p>
+
 
 Most packages are developed separately in javascript or typescript for increasing generality to make them us in all libraries and frameworks.
 
