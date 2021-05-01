@@ -77,7 +77,7 @@ Connect your react app to any third party in three-step
 // construct.js
 import Something from 'your-third-party'
 export default function instantiate(node, params) {
-  return new Something(node, options)
+  return new Something(node, {...params, ...yourCustomConfig} )
 }
 ```
 
