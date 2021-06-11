@@ -20,6 +20,15 @@
     "name": "Amir.H Ebrahimi",
     "email": "amirhosseinebrahimi77@gmail.com"
   },
+   "keywords": [
+    "api",
+    "hook",
+    "react",
+    "aptor",
+    "apiHandler",
+    "reactApiHandler",
+    "thirdParty"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
