@@ -1,9 +1,9 @@
 <h1 align="center">React Aptor</h1>
-<p align="center"><img src="./doc/assets/logo.svg" width="450"></p>
+<p align="center"><img src="./doc/assets/logo.svg" alt="react aptor logo" width="450"></p>
 <p align="center">React API Connector</p>
 <p align="center">
   <a href="https://github.com/amirHossein-Ebrahimi/react-aptor/blob/master/license">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="license" />
   </a>
   <a href="https://npmjs.org/package/react-aptor">
     <img src="https://img.shields.io/npm/dt/react-aptor.svg" alt="downloads" />
@@ -34,34 +34,20 @@ List of some other concerns:
 
 ## react-aptor
 
-We strived to solve them all at once
+We strive to solve them all at once
 
-### Small
-
-The unparsed project size is less than 1 kilobyte (the unparsed greatest file size is 352 bytes 😱).
-> It is also zero-dependency [See more...](https://bundlephobia.com/result?p=react-aptor)
-
-### Manageable
-
-Your used/defined APIs are entirely under your control. Make it possible to define a slice of APIs which you are surely going to use.
-
-### React-ish
-
-Developed with lots of care, try to be zero-anti-pattern in react.
-
-### Simple
-
-Simple with a good developer experience.
-
-### Typescript
-
-It was developed in typescript and provide the following on the fly:
-
-- auto-complete
-- type-checking
+## Features
+***
+- **Small**
+   + Zero-dependency with less than 1 kilobyte size 😱 [react-aptor](https://bundlephobia.com/result?p=react-aptor)
+- **Manageable**
+   + Your used/defined APIs are entirely under your control. Make it possible to define a slice of APIs which you are surely going to use.
+- **React-ish**
+   + Developed with lots of care, try to be zero-anti-pattern in react.
+- **Simple**
+- **Typescript**
 
 ## How to use
-
 Connect your react app to any third party in three-step
 
 1. Define the instantiate function
@@ -129,9 +115,9 @@ export default React.forwardRef(Connector);
 For the connection phase, you need to define a `forwardRef` component, grab forwarded-ref and pass that as the first argument of`useAptor` hook. As the configuration argument you need to pass defined `instantiate` (defined in the first step), `getAPI` (defined in the second step), and your custom params argument. The useAptor hook will return you a ref (`aptorRef`) with must be bound to your returned DOM node.
 
 The params will be then passed to your `instantiate` and `getAPI` function, as you saw in the first and second steps.
-The value of params doesn't have any limitation and it can be any arbitrary type (e.g. `undefined`, `number`, `string`, `object`). You have full access to props in your component and you can define params value by props too.
+The value of params doesn't have any limitation, and it can be any arbitrary type (e.g. `undefined`, `number`, `string`, `object`). You have full access to props in your component and you can define params value by props too.
 
-**Usage Step**
+**Action Step**
 
 ```jsx
 const Main = () => {
@@ -154,6 +140,22 @@ Pass `createRef` to the Connector component (made in the third step), and then y
 
 The project was developed by typescript, see samples for more info.
 
+## core 
+
+### Options
+#### ref `ForwardedRef ref` *`required`*
+The react `useRef` or `createRef` ref instance to store you api  
+#### configuration `Object` *`required`*
+- ##### instantiate `function(node, params): Instance` *`required`*
+  A function that receives ref for probable bounded-node and params and returns an instance of your third-party. 
+- ##### getAPI `function(Instance, params): ApiObject` *`required`*
+  A function which receives instantiated instance and params and returns a key-value pair object for api handlers. 
+- ##### params `any`
+  Anything. It can be use props or pre-defined options.
+
+#### deps `Array[any]` `[]`
+react dependencies array for re-instantiating your third-party-packages by calling `instantiate` with latest node, params. 
+
 ## **Donation**
 
 🎨 Designer (**BTC**):
@@ -161,6 +163,7 @@ The project was developed by typescript, see samples for more info.
 
 💻 Developer/Maintainer (**BTC**):
 `bc1qq8qq63ex7svkkjdjn5axu8angfxytvs83nlujk`
+
 
 ## Samples
 
