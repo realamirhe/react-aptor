@@ -17,9 +17,12 @@ export type APIGenerator = () => APIObject;
 export type GetAPI<T> = (instance: Nullable<T>, prams?: any) => APIGenerator;
 // types:configuration
 export type Instantiate<T> = (node: Nullable<HTMLElement>, params?: any) => Nullable<T>;
+export type Destroy<T> = (instance: Nullable<T>, params?: any) => void;
+
 export interface AptorConfiguration<T> {
   getAPI: GetAPI<T>;
   instantiate: Instantiate<T>;
+  destroy: Destroy<T>;
   params?: any;
 }
 
@@ -37,11 +40,15 @@ export default function useAptor<T>(
 ): RefObject<HTMLElement> {
   const [instance, setInstance] = useState<Nullable<T>>(null);
   const domRef = useRef<Nullable<HTMLElement>>(null);
-  const { instantiate, getAPI, params } = configuration;
+  const { instantiate, destroy, getAPI, params } = configuration;
 
   useEffect(() => {
-    setInstance(instantiate(domRef.current, params));
+    const instance = instantiate(domRef.current, params);
+    setInstance(instance);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => {
+      if (destroy) destroy(instance, params);
+    };
   }, deps);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
