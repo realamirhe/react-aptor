@@ -5,7 +5,7 @@ import {
   useRef,
   ForwardedRef,
   RefObject,
-  useCallback,
+  useMemo,
 } from 'react';
 
 // types:misc
@@ -45,7 +45,7 @@ export default function useAptor<T>(
   }, deps);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const api = useCallback(getAPI(instance, params), [instance]);
+  const api = useMemo(() => getAPI(instance, params), [instance]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(ref, api, [api]);
