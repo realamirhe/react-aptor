@@ -43,11 +43,11 @@ export default function useAptor<T>(
   const { instantiate, destroy, getAPI, params } = configuration;
 
   useEffect(() => {
-    const instance = instantiate(domRef.current, params);
-    setInstance(instance);
+    const instanceReference = instantiate(domRef.current, params);
+    setInstance(instanceReference);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => {
-      if (destroy) destroy(instance, params);
+      if (destroy) destroy(instanceReference, params);
     };
   }, deps);
 
