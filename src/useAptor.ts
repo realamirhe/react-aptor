@@ -36,7 +36,7 @@ export interface AptorConfiguration<T> {
 export default function useAptor<T>(
   ref: ForwardedRef<APIObject>,
   configuration: AptorConfiguration<T>,
-  deps = []
+  deps: any[] = []
 ): RefObject<HTMLElement> {
   const [instance, setInstance] = useState<Nullable<T>>(null);
   const domRef = useRef<Nullable<HTMLElement>>(null);
