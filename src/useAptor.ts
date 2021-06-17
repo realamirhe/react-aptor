@@ -12,7 +12,7 @@ import {
 type Nullable<T> = T | null;
 // types:api
 export type SingleAPI = (...args: any[]) => any;
-export type APIObject = { [apiName: string]: SingleAPI };
+export type APIObject = Record<string, SingleAPI>;
 export type APIGenerator = () => APIObject;
 export type GetAPI<T> = (instance: Nullable<T>, prams?: any) => APIGenerator;
 // types:configuration
