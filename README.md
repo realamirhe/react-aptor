@@ -57,12 +57,12 @@ Your used/defined APIs are entirely under your control. Make it possible to defi
 
 <details>
     <summary>Simple</summary>
-    It was very enjoyable and simple as far as I was concerned. 💛
+    It's as simple as that. 💛
 </details>
 
 <details>
     <summary>Typescript</summary>
-    Feel free to contribute or suggest any changes in [issues page](https://github.com/amirHossein-Ebrahimi/react-aptor/issues)
+    Feel free to contribute or suggest any changes in <a href="https://github.com/amirHossein-Ebrahimi/react-aptor/issues">issues page</a>
 </details>
 
 ## How to use
@@ -122,7 +122,6 @@ The react-aptor will pass the latest instance of your third-party which has been
 3. **Connect API to react** by `useAptor`
 
 ```jsx
-//
 import useAptor from 'react-aptor';
 import getAPI from './api';
 import instantiate from './construct';
@@ -276,6 +275,23 @@ The following examples is for howler integration using react-aptor:
   }
 }
 ```
+
+### 💡 How to get API-Object type
+
+You can use something like the follwing:
+```ts
+export type APITypes = ReturnType<ReturnType<typeof getAPI>>;
+```
+
+### 💡 How to make a custom react integeration packge using react-aptor
+
+1. Name you packge **raptor-something** :)
+2. Use minimum possible configuration for your api
+3. Interact to props change in your component using `useEffect` and proper `deps` array
+4. Bind another ref to you Connector using fork-ref idea, for other possible usage
+
+See all in action in **[raptor-howler-example](https://github.com/amirHossein-Ebrahimi/raptor-howler/tree/master/example)**
+
 
 ## core
 
