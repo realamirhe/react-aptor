@@ -1,18 +1,9 @@
-import {
-  useEffect,
-  useImperativeHandle,
-  useState,
-  useRef,
-  ForwardedRef,
-  RefObject,
-  useMemo,
-} from 'react';
+import { useEffect, useImperativeHandle, useState, useRef, RefObject, useMemo, Ref } from 'react';
 
 // types:misc
 type Nullable<T> = T | null;
 // types:api
-export type SingleAPI = (...args: any[]) => any;
-export type APIObject = Record<string, SingleAPI>;
+export type APIObject = Record<string, any>; // function, class, ... as api-value
 export type APIGenerator = () => APIObject;
 export type GetAPI<T> = (instance: Nullable<T>, prams?: any) => APIGenerator;
 // types:configuration
@@ -34,7 +25,7 @@ export interface AptorConfiguration<T> {
  * @return domRef - can be bound to dom element
  */
 export default function useAptor<T>(
-  ref: ForwardedRef<APIObject>,
+  ref: Ref<APIObject>,
   configuration: AptorConfiguration<T>,
   deps: any[] = []
 ): RefObject<HTMLElement> {
@@ -45,10 +36,10 @@ export default function useAptor<T>(
   useEffect(() => {
     const instanceReference = instantiate(domRef.current, params);
     setInstance(instanceReference);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => {
       if (destroy) destroy(instanceReference, params);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

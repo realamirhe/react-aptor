@@ -42,6 +42,7 @@
     "lint": "eslint src/**/*.ts",
     "lint:fix": "yarn lint --fix",
     "lint:types": "tsc --noEmit",
+    "prebuild": "yarn clean",
     "build:cjs": "tsc",
     "build:es": "tsc -m esNext --outDir esm",
     "build": "yarn build:cjs && yarn build:es",
