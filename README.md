@@ -57,12 +57,12 @@ Your used/defined APIs are entirely under your control. Make it possible to defi
 
 <details>
     <summary>Simple</summary>
-    💛
+    It was very enjoyable and simple as far as I was concerned. 💛
 </details>
 
 <details>
     <summary>Typescript</summary>
-    🔥
+    Feel free to contribute or suggest any changes in [issues page](https://github.com/amirHossein-Ebrahimi/react-aptor/issues)
 </details>
 
 ## How to use
@@ -184,7 +184,7 @@ const Main = () => {
 
 Pass **createRef** to the Connector component (made in the third step), and then you can access all of the APIs inside **ref.current**
 
-### Using of optional chaining
+### 💡 Using of optional chaining
 
 > function call can be much more readable with [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) & related [babel plugin](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
 
@@ -192,7 +192,7 @@ Pass **createRef** to the Connector component (made in the third step), and then
 const apiKeyHandler = () => ref.current?.api_key();
 ```
 
-### Better naming
+### 💡 Better naming
 
 > In case you need `ref.current` more than one time, it is a good idea to rename it at the first place
 
@@ -205,12 +205,37 @@ const apiKeyHandler = () => {
 };
 ```
 
-### Can I remove if check in handlers
+### 💡 Can I remove if check in handlers
 
 Cause the default value for ref can be undefined (in **createRef**) and null (in **useRef**) Typescript will complain about possibility for not-existence of apis. [see more](https://fettblog.eu/typescript-react/hooks/#useref).
 In normal world react will bind your API to given ref after the Connector mount
 
-### Micro api instructions
+If you're using ref in useEffect or somewhere which is guaranteed to have the ref bounded to values, you can return proxy object in your getAPI function to bind all api functions simultaneously.
+
+```js
+export default function getAPI(thirdParty, params) {
+  if (!thirdParty)
+    return () =>
+      new Proxy(
+        {},
+        {
+          get: (_, prop) => {
+            // Possible to mock differently for different props
+            return noop;
+          },
+        }
+      );
+
+  return () => ({
+    api_key() {
+      // third-party is defined here for sure :)
+      console.log(thirdParty);
+    },
+  });
+}
+```
+
+### 💡 Micro api instructions
 
 > You can access all of you apis via `this` keyword
 
@@ -230,34 +255,60 @@ export default function getAPI(sound, params) {
 
 > It's better to start name of this internal functions with `_`
 
+### 💡 The `this` problem in API object
+
+In a case you see this keyword usage in third-party API
+you must specifying `this` something other than returned API object.
+The following examples is for howler integration using react-aptor:
+
+```js
+{
+  // ❌ It doesn't work
+  state: howler.state,
+
+  // 🆗 this is Okay
+  state: howler.state.bind(howler),
+  // 🆗 this is also Okay
+  state: () => howler.state(),
+  // 🆗 this is also Okay, too
+  state() {
+    return howler.state();
+  }
+}
+```
+
 ## core
 
-### Options
-
-#### ref _`required`_
+### **ref** _`required`_
 
 The react **useRef** or **createRef** ref instance which has been passed throw **react.forwardRef** method.
 your api will be stored in this ref.
 
-#### configuration _`required`_
+### **configuration** _`required`_
 
-- ##### instantiate _`required`_
+- ### **instantiate** _`required`_
 
   > function(node, params): Instance
 
   A function that receives probable bounded-node and params. It then returns an instance of your third-party.
 
-- ##### getAPI _`required`_
+- ### **destroy**
+
+  > function(previousInstance, params): void
+
+  A function that receives previous created instance and params. It is useful when you want to perform the cleanup before new instance creation. e.g. **remove event listeners**, **free up allocated memories**, **destroy internally** & etc
+
+- ### **getAPI** _`required`_
 
   > function(Instance, params): ApiObject
 
   A function which receives instance of you third-party and params. It then returns a key-value pair object for api handlers.
 
-- ##### params `any`
+- ### **params** `any`
 
   Params can have any arbitrary type and can be used with props or pre-defined options.
 
-#### deps `[]`
+### **deps** `[]`
 
 React dependencies array for re-instantiating your third-party-packages. It will call `instantiate` with latest node, params when ever shallow comparison for with the previous deps array finds inequality.
 

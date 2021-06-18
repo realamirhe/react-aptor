@@ -1,25 +1,19 @@
-import {
-  useEffect,
-  useImperativeHandle,
-  useState,
-  useRef,
-  ForwardedRef,
-  RefObject,
-  useMemo,
-} from 'react';
+import { useEffect, useImperativeHandle, useState, useRef, RefObject, useMemo, Ref } from 'react';
 
 // types:misc
 type Nullable<T> = T | null;
 // types:api
-export type SingleAPI = (...args: any[]) => any;
-export type APIObject = { [apiName: string]: SingleAPI };
+export type APIObject = Record<string, any>; // function, class, ... as api-value
 export type APIGenerator = () => APIObject;
 export type GetAPI<T> = (instance: Nullable<T>, prams?: any) => APIGenerator;
 // types:configuration
 export type Instantiate<T> = (node: Nullable<HTMLElement>, params?: any) => Nullable<T>;
+export type Destroy<T> = (instance: Nullable<T>, params?: any) => void;
+
 export interface AptorConfiguration<T> {
   getAPI: GetAPI<T>;
   instantiate: Instantiate<T>;
+  destroy: Destroy<T>;
   params?: any;
 }
 
@@ -31,16 +25,20 @@ export interface AptorConfiguration<T> {
  * @return domRef - can be bound to dom element
  */
 export default function useAptor<T>(
-  ref: ForwardedRef<APIObject>,
+  ref: Ref<APIObject>,
   configuration: AptorConfiguration<T>,
-  deps = []
+  deps: any[] = []
 ): RefObject<HTMLElement> {
   const [instance, setInstance] = useState<Nullable<T>>(null);
   const domRef = useRef<Nullable<HTMLElement>>(null);
-  const { instantiate, getAPI, params } = configuration;
+  const { instantiate, destroy, getAPI, params } = configuration;
 
   useEffect(() => {
-    setInstance(instantiate(domRef.current, params));
+    const instanceReference = instantiate(domRef.current, params);
+    setInstance(instanceReference);
+    return () => {
+      if (destroy) destroy(instanceReference, params);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
