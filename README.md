@@ -9,7 +9,10 @@
     <img src="https://img.shields.io/npm/dt/react-aptor.svg" alt="downloads" />
   </a>
   <a href="https://bundlephobia.com/result?p=react-aptor">
-    <img src="https://img.shields.io/bundlephobia/minzip/react-aptor.svg" alt="downloads" />
+    <img src="https://img.shields.io/bundlephobia/minzip/react-aptor.svg" alt="bundle size" />
+</a>
+  <a href="https://lgtm.com/projects/g/amirHossein-Ebrahimi/react-aptor/context:javascript">
+    <img src="https://img.shields.io/lgtm/grade/javascript/g/amirHossein-Ebrahimi/react-aptor.svg?logo=lgtm&logoWidth=18" alt="Language grade: JavaScript" />
 </a>
 </p>
 
