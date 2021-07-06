@@ -37,12 +37,12 @@ On the other hand, these packages might be developed by different teams, hence d
 If you are still not convinced you can read this [article](https://dev.to/amirhe/aptor-is-all-you-need-3din)
 
 
-**Concerns**:
-
-- on finding DOM nodes by `ReactDOM.findDOMNode`
+**Other Concerns**:
+- Finding DOM nodes by ReactDOM.findDOMNode
 - Extensively usage of memorization to improve performance or prevent extra re-renders
-- Other duplication layer for all API definition in react that increase the project size.
-- Rely on a global scope (e.g. window) for internal setting (making it impossible to have more than one instance).
+- Other duplication layer for all API definition in react that increase the project size
+- Rely on a global scope (e.g. window) for internal settings (making it impossible to have more than one instance)
+- backward compatible updates of the base package need another update for react-* package
 
 ## react-aptor
 
