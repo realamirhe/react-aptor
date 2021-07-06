@@ -21,7 +21,11 @@
 <p align="right">
    <a href="./doc/localization/fa.md">آموزش فارسی</a>
 </p>
+
 Don’t waste your time by finding react version of your favorite javascript package, keep control of your `API` now.
+
+**Documentation**: You can find the react-aptor documentation [on the website](https://ahimico.github.io/docs/react-aptor/tutorials-overview).
+
 
 ## Why
 
@@ -29,6 +33,9 @@ Most packages are developed separately in JavaScript for increasing generality b
 
 Connecting vanilla third parties to react is not a routine task especially those that need to change the DOM.
 On the other hand, these packages might be developed by different teams, hence development progress can be one step behind of the original or even be terminated at any time. Also, wrong abstraction or bad design patterns may interrupt the progress of these react`-something` packages.
+
+If you are still not convinced you can read this [article](https://dev.to/amirhe/aptor-is-all-you-need-3din)
+
 
 **Concerns**:
 
