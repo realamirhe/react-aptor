@@ -9,7 +9,10 @@
     <img src="https://img.shields.io/npm/dt/react-aptor.svg" alt="downloads" />
   </a>
   <a href="https://bundlephobia.com/result?p=react-aptor">
-    <img src="https://img.shields.io/bundlephobia/minzip/react-aptor.svg" alt="downloads" />
+    <img src="https://img.shields.io/bundlephobia/minzip/react-aptor.svg" alt="bundle size" />
+</a>
+  <a href="https://lgtm.com/projects/g/amirHossein-Ebrahimi/react-aptor/context:javascript">
+    <img src="https://img.shields.io/lgtm/grade/javascript/g/amirHossein-Ebrahimi/react-aptor.svg?logo=lgtm&logoWidth=18" alt="Language grade: JavaScript" />
 </a>
 </p>
 
@@ -18,7 +21,11 @@
 <p align="right">
    <a href="./doc/localization/fa.md">آموزش فارسی</a>
 </p>
+
 Don’t waste your time by finding react version of your favorite javascript package, keep control of your `API` now.
+
+**Documentation**: You can find the react-aptor documentation [on the website](https://ahimico.github.io/docs/react-aptor/tutorials-overview).
+
 
 ## Why
 
@@ -27,12 +34,15 @@ Most packages are developed separately in JavaScript for increasing generality b
 Connecting vanilla third parties to react is not a routine task especially those that need to change the DOM.
 On the other hand, these packages might be developed by different teams, hence development progress can be one step behind of the original or even be terminated at any time. Also, wrong abstraction or bad design patterns may interrupt the progress of these react`-something` packages.
 
-**Concerns**:
+If you are still not convinced you can read this [article](https://dev.to/amirhe/aptor-is-all-you-need-3din)
 
-- on finding DOM nodes by `ReactDOM.findDOMNode`
+
+**Other Concerns**:
+- Finding DOM nodes by ReactDOM.findDOMNode
 - Extensively usage of memorization to improve performance or prevent extra re-renders
-- Other duplication layer for all API definition in react that increase the project size.
-- Rely on a global scope (e.g. window) for internal setting (making it impossible to have more than one instance).
+- Other duplication layer for all API definition in react that increase the project size
+- Rely on a global scope (e.g. window) for internal settings (making it impossible to have more than one instance)
+- backward compatible updates of the base package need another update for react-* package
 
 ## react-aptor
 
@@ -340,13 +350,16 @@ React dependencies array for re-instantiating your third-party-packages. It will
 
 ## Samples
 
+**NOTE**: Add your favourite packge do the following list by creating a [new issue](https://github.com/amirHossein-Ebrahimi/react-aptor/issues).
+
+
 ### [Quill.js](https://github.com/quilljs/quill) + `typescript`
 
 > Quill is a free, open source WYSIWYG editor built for the modern web. <img src="https://img.shields.io/github/stars/quilljs/quill?style=social" /> > <a href="https://codesandbox.io/s/react-aptor--quill-iqwcd"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
 
 ### [Fabric.js](http://fabricjs.com)
 
-> Fabric.js is a powerful and simple. Javascript HTML5 canvas library. <img src="https://img.shields.io/github/stars/fabricjs/fabric.js?style=social" /> > <a href="https://codesandbox.io/s/react-aptor--fabric-hp50c"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
+> Fabric.js is a powerful and simple. Javascript HTML5 canvas library. <img src="https://img.shields.io/github/stars/fabricjs/fabric.js?style=social" /> > <a href="https://codesandbox.io/s/re act-aptor--fabric-hp50c"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
 
 ### [Rive.js](https://rive.app)
 
