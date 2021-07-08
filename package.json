@@ -1,6 +1,6 @@
 {
   "name": "react-aptor",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "description": "React API connector",
   "main": "lib/index.js",
