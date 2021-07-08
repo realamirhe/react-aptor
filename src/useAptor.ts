@@ -13,7 +13,7 @@ export type Destroy<T> = (instance: Nullable<T>, params?: any) => void;
 export interface AptorConfiguration<T> {
   getAPI: GetAPI<T>;
   instantiate: Instantiate<T>;
-  destroy: Destroy<T>;
+  destroy?: Destroy<T>;
   params?: any;
 }
 
