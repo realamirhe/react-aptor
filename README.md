@@ -38,7 +38,7 @@ Don’t waste your time by finding react version of your favorite javascript pac
 Most packages are developed separately in JavaScript for increasing generality being library/framework agnostic.
 
 Connecting vanilla third parties to react is not a routine task especially those that need to change the DOM.
-On the other hand, these packages might be developed by different teams, hence development progress can be one step behind of the original or even be terminated at any time. Also, wrong abstraction or bad design patterns may interrupt the progress of these react`-something` packages.
+On the other hand, these packages might be developed by different teams, hence development progress can be one step behind of the original or even be terminated at any time. Also, wrong abstraction or bad design patterns may interrupt the progress of these `react-xyz` packages.
 
 If you are still not convinced you can read this [article](https://dev.to/amirhe/aptor-is-all-you-need-3din)
 
@@ -48,7 +48,7 @@ If you are still not convinced you can read this [article](https://dev.to/amirhe
 - Extensively usage of memorization to improve performance or prevent extra re-renders
 - Other duplication layer for all API definition in react that increase the project size
 - Rely on a global scope (e.g. window) for internal settings (making it impossible to have more than one instance)
-- backward compatible updates of the base package need another update for react-* package
+- backward compatible updates of the base package need another update for react-xyz package
 
 ## react-aptor
 
