@@ -1,6 +1,12 @@
 <h1 align="center">React Aptor</h1>
 <p align="center"><img src="./doc/assets/logo.svg" alt="react aptor logo" width="450"></p>
-<p align="center">Minimal API Connector for react</p>
+<p align="center">
+Minimal API Connector for react
+  <br>
+  <img src="https://img.shields.io/badge/Tree%20Shakeable-d4e157" alt="tree-shakeable" />
+  <img src="https://img.shields.io/badge/Zero%20Dependencies-ffbfbf" alt="zero dependencies" />
+  <img src="https://img.shields.io/badge/Side%20Effect%20Free-ffeb3b" alt="side-effect free" />
+</p>	
 <p align="center">
   <a href="https://github.com/amirHossein-Ebrahimi/react-aptor/blob/master/license">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="license" />
