@@ -358,26 +358,24 @@ React dependencies array for re-instantiating your third-party-packages. It will
 
 **NOTE**: Add your favourite packge do the following list by creating a [new issue](https://github.com/amirHossein-Ebrahimi/react-aptor/issues).
 
+<a href="https://codesandbox.io/s/react-aptor--fabric-hp50c" title="codesandbox | fabric.js">
+  <img src="https://i.stack.imgur.com/GLnt7.png" width="150">
+</a>
+<a href="https://codesandbox.io/s/react-aptor--quill-iqwcd" title="codesandbox | quill.js">
+  <img src="https://i.stack.imgur.com/wVBVM.png" width="150">
+</a>
+&nbsp;&nbsp;
+<a href="https://github.com/amirHossein-Ebrahimi/raptor-howler" title="github | react-howler">
+  <img src="https://raw.githubusercontent.com/amirHossein-Ebrahimi/raptor-howler/master/doc/assets/logo.svg" width="150">
+</a>
 
-### [Quill.js](https://github.com/quilljs/quill) + `typescript`
+<a href="https://stackblitz.com/edit/react-aptor-rivejs" title="stackblitz | rive.js">
+  <img src="https://i.stack.imgur.com/SYdgf.png" width="150">
+</a>
 
-> Quill is a free, open source WYSIWYG editor built for the modern web. <img src="https://img.shields.io/github/stars/quilljs/quill?style=social" /> > <a href="https://codesandbox.io/s/react-aptor--quill-iqwcd"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
-
-### [Fabric.js](http://fabricjs.com)
-
-> Fabric.js is a powerful and simple. Javascript HTML5 canvas library. <img src="https://img.shields.io/github/stars/fabricjs/fabric.js?style=social" /> > <a href="https://codesandbox.io/s/re act-aptor--fabric-hp50c"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
-
-### [Rive.js](https://rive.app)
-
-> Create and ship beautiful animations to any platform. <img src="https://img.shields.io/github/stars/rive-app/rive-wasm?style=social" /> > <a href="https://stackblitz.com/edit/react-aptor-rivejs"><img width="165" src="https://developer.stackblitz.com/img/logo.svg"></a>
-
-### [Howler.js](https://howlerjs.com)
-
-> Audio library for the modern web. <img src="https://img.shields.io/github/stars/goldfire/howler.js?style=social" /> > <a href="https://codesandbox.io/s/react-aptor--howler-4o8t4"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
-
-### [Reveal.js](https://revealjs.com)
-
-> HTML presentation framework create fully featured and beautiful presentations. <img src="https://img.shields.io/github/stars/hakimel/reveal.js?style=social" /> > <a href="https://codesandbox.io/s/react-aptor--reveal-dwrke"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
+<a href="https://codesandbox.io/s/react-aptor--howler-4o8t4" title="codesandbox | howler.js">
+  <img src="https://i.stack.imgur.com/bmvAc.png" width="150" height="150">
+</a>
 
 <p align="center">
    <a href="./doc/samples.md"> ⭐ SEE ALL SAMPLES 🌟</a>
