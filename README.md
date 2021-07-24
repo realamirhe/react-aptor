@@ -354,6 +354,14 @@ React dependencies array for re-instantiating your third-party-packages. It will
 💻 Developer/Maintainer (**BTC**):
 `bc1qq8qq63ex7svkkjdjn5axu8angfxytvs83nlujk`
 
+## Color Palettes
+
+![#c7589e](https://via.placeholder.com/30/c7589e/000000?text=+ "#c7589e")
+![#ed5b6e](https://via.placeholder.com/30/ed5b6e/000000?text=+ "#ed5b6e")
+![#f9b919](https://via.placeholder.com/30/f9b919/000000?text=+ "#f9b919")
+![#26abe2](https://via.placeholder.com/30/26abe2/000000?text=+ "#26abe2")
+![#129f4d](https://via.placeholder.com/30/129f4d/000000?text=+ "#129f4d")
+
 ## Samples
 
 **NOTE**: Add your favourite packge do the following list by creating a [new issue](https://github.com/amirHossein-Ebrahimi/react-aptor/issues).
