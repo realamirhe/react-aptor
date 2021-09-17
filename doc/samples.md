@@ -53,8 +53,19 @@ howler.js makes working with audio in JavaScript easy and reliable across all pl
 
 ---
 
+
+<img src="https://img.shields.io/github/stars/sampotts/plyr?style=social" />
+
+### [Plyr](https://github.com/sampotts/plyr) 
+
+> A simple HTML5, YouTube, and Vimeo player.
+ 
+<a href="https://github.com/chintan9/plyr-react" title="plyr-react package"><img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Npm-logo.svg" width="60"></a>
+
+---
+
 ### [Voice recorder](https://www.npmjs.com/package/@web-lite/voice-recorder) 
 
-> A Multi platform typescript voice-recorder library for browser.
+> A Multi-platform typescript voice-recorder library for browser.
  
 <a href="https://codesandbox.io/s/react-aptor--weblite-voice-zgy0k"><img src="https://codesandbox.io/static/img/play-codesandbox.svg"></a>
