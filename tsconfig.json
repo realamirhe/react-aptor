@@ -20,9 +20,5 @@
     "importHelpers": true
   },
   "include": ["src"],
-  "exclude": [
-    "node_modules",
-    "lib",
-    "esm"
-  ]
+  "exclude": ["node_modules", "lib", "esm"]
 }
