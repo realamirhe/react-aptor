@@ -25,7 +25,7 @@ Minimal API Connector for react
 ---
 
 <p align="right">
-   <a href="./doc/localization/fa.md">آموزش فارسی</a>
+   <a href="./doc/localization/fa.md">🇮🇷</a>
 </p>
 
 Don’t waste your time by finding react version of your favorite javascript package, keep control of your `API` now.
