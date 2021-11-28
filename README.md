@@ -347,11 +347,11 @@ React dependencies array for re-instantiating your third-party-packages. It will
 
 ## **Donation**
 
-🎨 Designer (**BTC**):
-`bc1q9fahyct3lrdz47pjf4kfxvsyum2dm74v2hv9xl`
-
 💻 Developer/Maintainer (**BTC**):
 `bc1qq8qq63ex7svkkjdjn5axu8angfxytvs83nlujk`
+
+🎨 Designer (**BTC**):
+`bc1q9fahyct3lrdz47pjf4kfxvsyum2dm74v2hv9xl`
 
 ## Color Palettes
 
