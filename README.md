@@ -36,8 +36,8 @@ Don’t waste your time by finding react version of your favorite javascript pac
 
 Most packages are developed separately in JavaScript for increasing generality being library/framework agnostic.
 
-Connecting vanilla third parties to react is not a routine task especially those that need to change the DOM.
-On the other hand, these packages might be developed by different teams, hence development progress can be one step behind of the original or even be terminated at any time. Also, wrong abstraction or bad design patterns may interrupt the progress of these `react-xyz` packages.
+Connecting vanilla third parties to react is not a routine task especially for those that need to change the DOM.
+On the other hand, these packages might be developed by different teams, hence development progress can be one step behind the original or even be terminated at any time. Also, wrong abstraction or bad design patterns may interrupt the progress of these `react-xyz` packages.
 
 If you are still not convinced you can read this [article](https://dev.to/amirhe/aptor-is-all-you-need-3din)
 
@@ -45,9 +45,9 @@ If you are still not convinced you can read this [article](https://dev.to/amirhe
 **Other Concerns**:
 - Finding DOM nodes by ReactDOM.findDOMNode
 - Extensively usage of memorization to improve performance or prevent extra re-renders
-- Other duplication layer for all API definition in react that increase the project size
+- Another duplication layer for all API definitions in react that increase the project size
 - Rely on a global scope (e.g. window) for internal settings (making it impossible to have more than one instance)
-- backward compatible updates of the base package need another update for react-xyz package
+- backward compatible updates of the base package need another update for the react-xyz package
 
 ## react-aptor
 
@@ -62,7 +62,7 @@ We strive to solve all mentioned problems at once and for all.
 
 <details>
     <summary>Manageable</summary>
-Your used/defined APIs are entirely under your control. Make it possible to define a slice of APIs which you are surely going to use.
+Your used/defined APIs are entirely under your control. Make it possible to define a slice of APIs that you are surely going to use.
 </details>
 
 <details>
@@ -105,8 +105,8 @@ This function will return an instance of the third-party package. You have acces
 > The `node` is passed by react-aptor as a reference to DOM that is occasionally used as a wrapper for embedding UI.
 > The DOM-node\* will become more clear in the third step.
 >
-> The `params` are optional parameters that are passed by react-aptor and define by you. see the third step.
-> The params will be passed by you and will be more clear in third step.
+> The `params` are optional parameters that are passed by react-aptor and defined by you. see the third step.
+> The params will be passed by you and will be more clear in the third step.
 >
 > name this file **construct.js** as convention ✨.
 
@@ -124,13 +124,13 @@ export default function getAPI(instance, params) {
 }
 ```
 
-The react-aptor will pass the latest instance of your third-party which has been defined in the first step by **instantiate** function along with **params** to **getAPI** function.
+The react-aptor will pass the latest instance of your third party which has been defined in the first step by the **instantiate** function along with **params** to **getAPI** function.
 
-> The `instance` is returned instance of your third-party.
+> The `instance` is returned instance of your third party.
 > Technically it is exactly going to be **instantiate(node, params)**
 >
-> The `params` are optional parameters that are passed by react-aptor and define by you. see the third step.
-> The params will be passed by you and will be more clear in third step.
+> The `params` are optional parameters that are passed by react-aptor and defined by you. see the third step.
+> The params will be passed by you and will be more clear in the third step.
 >
 > name this file **api.js** as convention ✨.
 
@@ -164,16 +164,16 @@ const aptorRef = useAptor(ref, configuration, deps);
 ```
 
 **ref**
-For the connection phase, you need to define a **forwardRef** component. The `useAptor` hook needs forwarded-ref as the first argument, this is necessary to bind all your defined api to this ref.
+For the connection phase, you need to define a **forwardRef** component. The `useAptor` hook needs forwarded-ref as the first argument, this is necessary to bind all your defined API to this ref.
 
 **configuration**
 As the configuration argument you need to pass defined **instantiate** (defined in the first step ☝️), **getAPI** (defined in the second step ☝️) and your custom params argument. The useAptor hook will return you a ref (`aptorRef`) which you can bind to your DOM node.
 
-> The `params` doesn't have any limitation, it can be any arbitrary type e.g. undefined, number, string or an object containing all of them. The params will be then passed to your instantiate and getAPI function, as you saw in the first and second steps.
-> Params is the best place to connect props to your low-level api it means ”No Need” for extra function generation 🥳
+> The `params` doesn't have any limitation, it can be any arbitrary type e.g. undefined, number, string, or an object containing all of them. The params will be then passed to your instantiate and getAPI function, as you saw in the first and second steps.
+> Params is the best place to connect props to your low-level API it means ”No Need” for extra function generation 🥳
 
 **deps**
-Is the same as Dependencies array default value is `[]` but you can override it as the third and lat argument of useAptor. It maybe needed in situation which you want to force re-instantiate by some prop change. It will use shallow comparison (as react do) for deps array and will call your `instantiate` & `getApI` in a row.
+Is the same as Dependencies array default value is `[]` but you can override it as the third and last argument of useAptor. It may be needed in a situation in which you want to force re-instantiate by some prop change. It will use shallow comparison (as react do) for dependency array and will call your `instantiate` & `getAPI` in a row.
 
 ### API usage
 
@@ -208,7 +208,7 @@ const apiKeyHandler = () => ref.current?.api_key();
 
 ### 💡 Better naming
 
-> In case you need `ref.current` more than one time, it is a good idea to rename it at the first place
+> In case you need `ref.current` more than one time, it is a good idea to rename it in the first place
 
 ```jsx
 const apiKeyHandler = () => {
@@ -219,12 +219,12 @@ const apiKeyHandler = () => {
 };
 ```
 
-### 💡 Can I remove if check in handlers
+### 💡 Can I remove if check-in handlers
 
 Cause the default value for ref can be undefined (in **createRef**) and null (in **useRef**) Typescript will complain about possibility for not-existence of apis. [see more](https://fettblog.eu/typescript-react/hooks/#useref).
-In normal world react will bind your API to given ref after the Connector mount
+In a normal world react will bind your API to the given ref after the Connector mount
 
-If you're using ref in useEffect or somewhere which is guaranteed to have the ref bounded to values, you can return proxy object in your getAPI function to bind all api functions simultaneously.
+If you're using ref in useEffect or somewhere which is guaranteed to have the ref bounded to values, you can return a proxy object in your `getAPI` function to bind all api functions simultaneously.
 
 ```js
 export default function getAPI(thirdParty, params) {
@@ -249,9 +249,9 @@ export default function getAPI(thirdParty, params) {
 }
 ```
 
-### 💡 Micro api instructions
+### 💡 Micro API instructions
 
-> You can access all of you apis via `this` keyword
+> You can access all of your APIs via `this` keyword
 
 ```js
 export default function getAPI(sound, params) {
@@ -267,13 +267,13 @@ export default function getAPI(sound, params) {
 }
 ```
 
-> It's better to start name of this internal functions with `_`
+> It's better to start the name of these internal functions with `_`
 
 ### 💡 The `this` problem in API object
 
-In a case you see this keyword usage in third-party API
-you must specifying `this` something other than returned API object.
-The following examples is for howler integration using react-aptor:
+In a case, you see this keyword usage in third-party API
+you must specify `this` something other than returned API object.
+The following examples are for howler integration using react-aptor:
 
 ```js
 {
@@ -298,22 +298,24 @@ You can use something like the follwing:
 export type APITypes = ReturnType<ReturnType<typeof getAPI>>;
 ```
 
-### 💡 How to make a custom react integeration packge using react-aptor
+### 💡 How to make a custom react integration package using react-aptor
 
-1. Name you packge **raptor-something** :)
-2. Use minimum possible configuration for your api
+1. Name your package **raptor-something** :)
+2. Use minimum possible configuration for your API
 3. Interact to props change in your component using `useEffect` and proper `deps` array
-4. Bind another ref to you Connector using fork-ref idea, for other possible usage
+4. Bind another ref to your Connector using the fork-ref idea
 
-See all in action in **[raptor-howler-example](https://github.com/amirHossein-Ebrahimi/raptor-howler/tree/master/example)**
+For another possible usage see our production ready examples:
 
+- **[plyr-react](https://github.com/chintan9/plyr-react)**
+- **[raptor-howler-example](https://github.com/amirHossein-Ebrahimi/raptor-howler/tree/master/example)**
 
 ## core
 
 ### **ref** _`required`_
 
 The react **useRef** or **createRef** ref instance which has been passed throw **react.forwardRef** method.
-your api will be stored in this ref.
+your API will be stored in this ref.
 
 ### **configuration** _`required`_
 
@@ -321,19 +323,19 @@ your api will be stored in this ref.
 
   > function(node, params): Instance
 
-  A function that receives probable bounded-node and params. It then returns an instance of your third-party.
+  A function that receives probable bounded-node and params. It then returns an instance of your third party.
 
 - ### **destroy**
 
   > function(previousInstance, params): void
 
-  A function that receives previous created instance and params. It is useful when you want to perform the cleanup before new instance creation. e.g. **remove event listeners**, **free up allocated memories**, **destroy internally** & etc
+  A function that receives previously created instances and params. It is useful when you want to perform the cleanup before new instance creation. e.g. **remove event listeners**, **free up allocated memories**, **destroy internally** & etc
 
 - ### **getAPI** _`required`_
 
   > function(Instance, params): ApiObject
 
-  A function which receives instance of you third-party and params. It then returns a key-value pair object for api handlers.
+  A function that receives instances of your third-party and params. It then returns a key-value pair object for API handlers.
 
 - ### **params** `any`
 
@@ -341,7 +343,7 @@ your api will be stored in this ref.
 
 ### **deps** `[]`
 
-React dependencies array for re-instantiating your third-party-packages. It will call `instantiate` with latest node, params when ever shallow comparison for with the previous deps array finds inequality.
+React dependencies array for re-instantiating your third-party packages. It will call `instantiate` with the latest node, params whenever shallow comparison for with the previous deps array finds inequality.
 
 ---
 
@@ -363,7 +365,7 @@ React dependencies array for re-instantiating your third-party-packages. It will
 
 ## Samples
 
-**NOTE**: Add your favourite packge do the following list by creating a [new issue](https://github.com/amirHossein-Ebrahimi/react-aptor/issues).
+**NOTE**: Add your favorite package to the following list by creating a [new issue](https://github.com/amirHossein-Ebrahimi/react-aptor/issues).
 
 <a href="https://codesandbox.io/s/react-aptor--fabric-hp50c" title="codesandbox | fabric.js">
   <img src="https://i.stack.imgur.com/GLnt7.png" width="150">
