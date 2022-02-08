@@ -10,11 +10,11 @@ export type GetAPI<T> = (instance: Nullable<T>, prams?: any) => APIGenerator;
 export type Instantiate<T> = (node: Nullable<HTMLElement>, params?: any) => Nullable<T>;
 export type Destroy<T> = (instance: Nullable<T>, params?: any) => void;
 
-export interface AptorConfiguration<T> {
+export interface AptorConfiguration<T, P = any> {
   getAPI: GetAPI<T>;
   instantiate: Instantiate<T>;
   destroy?: Destroy<T>;
-  params?: any;
+  params?: P;
 }
 
 /**
@@ -24,9 +24,9 @@ export interface AptorConfiguration<T> {
  * @param {Array} [deps=[]] - react dependencies array
  * @return domRef - can be bound to dom element
  */
-export default function useAptor<T>(
+export default function useAptor<T, P = any>(
   ref: Ref<APIObject>,
-  configuration: AptorConfiguration<T>,
+  configuration: AptorConfiguration<T, P>,
   deps: any[] = []
 ): RefObject<HTMLElement> {
   const [instance, setInstance] = useState<Nullable<T>>(null);
