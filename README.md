@@ -8,7 +8,7 @@ Minimal API Connector for react
   <img src="https://img.shields.io/badge/Side%20Effect%20Free-ffeb3b" alt="side-effect free" />
 </p>	
 <p align="center">
-  <a href="https://github.com/amirHossein-Ebrahimi/react-aptor/blob/master/license">
+  <a href="https://github.com/realamirhe/react-aptor/blob/master/license">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="license" />
   </a>
   <a href="https://npmjs.org/package/react-aptor">
@@ -17,14 +17,14 @@ Minimal API Connector for react
   <a href="https://bundlephobia.com/result?p=react-aptor">
     <img src="https://img.shields.io/bundlephobia/minzip/react-aptor.svg" alt="bundle size" />
 </a>
-  <a href="https://lgtm.com/projects/g/amirHossein-Ebrahimi/react-aptor/context:javascript">
-    <img src="https://img.shields.io/lgtm/grade/javascript/g/amirHossein-Ebrahimi/react-aptor.svg?logo=lgtm&logoWidth=18" alt="Language grade: JavaScript" />
+  <a href="https://lgtm.com/projects/g/realamirhe/react-aptor/context:javascript">
+    <img src="https://img.shields.io/lgtm/grade/javascript/g/realamirhe/react-aptor.svg?logo=lgtm&logoWidth=18" alt="Language grade: JavaScript" />
 </a>
 </p>
 
 ---
 
-English | <a href="./doc/localization/fa.md">Persian</a> | (<a href="https://github.com/amirHossein-Ebrahimi/react-aptor/issues/new">add your langauge</a>)
+English | <a href="./doc/localization/fa.md">Persian</a> | (<a href="https://github.com/realamirhe/react-aptor/issues/new">add your langauge</a>)
 
 
 Don’t waste your time by finding react version of your favorite javascript package, keep control of your `API` now.
@@ -365,7 +365,7 @@ React dependencies array for re-instantiating your third-party packages. It will
 
 ## Samples
 
-**NOTE**: Add your favorite package to the following list by creating a [new issue](https://github.com/amirHossein-Ebrahimi/react-aptor/issues).
+**NOTE**: Add your favorite package to the following list by creating a [new issue](https://github.com/realamirhe/react-aptor/issues).
 
 <a href="https://codesandbox.io/s/react-aptor--fabric-hp50c" title="codesandbox | fabric.js">
   <img src="https://i.stack.imgur.com/GLnt7.png" width="150">
@@ -374,8 +374,8 @@ React dependencies array for re-instantiating your third-party packages. It will
   <img src="https://i.stack.imgur.com/wVBVM.png" width="150">
 </a>
 &nbsp;&nbsp;
-<a href="https://github.com/amirHossein-Ebrahimi/raptor-howler" title="github | react-howler">
-  <img src="https://raw.githubusercontent.com/amirHossein-Ebrahimi/raptor-howler/master/doc/assets/logo.svg" width="150">
+<a href="https://github.com/realamirhe/raptor-howler" title="github | react-howler">
+  <img src="https://raw.githubusercontent.com/realamirhe/raptor-howler/master/doc/assets/logo.svg" width="150">
 </a>
 
 <a href="https://stackblitz.com/edit/react-aptor-rivejs" title="stackblitz | rive.js">
