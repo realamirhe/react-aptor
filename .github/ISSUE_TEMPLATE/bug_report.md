@@ -1,9 +1,9 @@
 ---
-name: Bug report
+name: Bug reports
 about: Create a report to help us improve
 title: ''
 labels: bug
-assignees: amirHossein-Ebrahimi
+assignees: realamirhe
 
 ---
 
@@ -17,7 +17,7 @@ A clear and concise description of what you expected to happen.
  - React: [e.g 16.8]
  - Browser [e.g. chrome, safari]
  - Environment [e.g. codesandbox]
- - Packge [e.g. Quill]
+ - Package [e.g. Quill]
  - react-aptor version [e.g 1.0.2]
 
 **Additional context**
