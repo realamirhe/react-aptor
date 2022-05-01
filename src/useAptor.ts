@@ -11,23 +11,28 @@ import {
 // NOTE: There is no limitation in api return value
 // Every thing it returns will directly get placed in the `ref.current`
 export type APIGenerator = () => any;
-export type GetAPI<T> = (instance: T | null, prams?: any) => APIGenerator;
-// types:configuration
-export type Instantiate<T, U extends HTMLElement = HTMLElement> = (
-  node: U | null,
-  params?: any
-) => T | null;
-export type Destroy<T> = (instance: T | null, params?: any) => void;
 
-export interface AptorConfiguration<
-  T,
-  U extends HTMLElement = HTMLElement,
-  P = unknown
-> {
-  getAPI: GetAPI<T>;
-  instantiate: Instantiate<T, U>;
-  destroy?: Destroy<T>;
-  params?: P;
+export type GetAPI<TInstance, TParams> = (
+  instance: TInstance | null,
+  prams?: TParams
+) => APIGenerator;
+
+// types:configuration
+export type Instantiate<TInstance, TElement, TParams> = (
+  node: TElement | null,
+  params?: TParams
+) => TInstance | null;
+
+export type Destroy<TInstance, TParams> = (
+  instance: TInstance | null,
+  params?: TParams
+) => void;
+
+export interface AptorConfiguration<TInstance, TElement, TParams> {
+  getAPI: GetAPI<TInstance, TParams>;
+  instantiate: Instantiate<TInstance, TElement, TParams>;
+  destroy?: Destroy<TInstance, TParams>;
+  params?: TParams;
 }
 
 /**
@@ -38,16 +43,16 @@ export interface AptorConfiguration<
  * @return domRef - can be bound to dom element
  */
 export default function useAptor<
-  T,
-  U extends HTMLElement = HTMLElement,
-  P = unknown
+  TInstance,
+  TElement extends HTMLElement = HTMLElement,
+  TParams = unknown
 >(
   ref: Ref<unknown>,
-  configuration: AptorConfiguration<T, U, P>,
+  configuration: AptorConfiguration<TInstance, TElement, TParams>,
   deps: DependencyList = []
-): RefObject<U> {
-  const [instance, setInstance] = useState<T | null>(null);
-  const domRef = useRef<U | null>(null);
+): RefObject<TElement> {
+  const [instance, setInstance] = useState<TInstance | null>(null);
+  const domRef = useRef<TElement | null>(null);
   const { instantiate, destroy, getAPI, params } = configuration;
 
   useEffect(() => {
