@@ -1,4 +1,5 @@
-import { useEffect, useImperativeHandle, useState, useRef, RefObject, useMemo, Ref } from 'react';
+import type { DependencyList, Ref, RefObject } from 'react';
+import { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 
 // types:misc
 type Nullable<T> = T | null;
@@ -10,11 +11,11 @@ export type GetAPI<T> = (instance: Nullable<T>, prams?: any) => APIGenerator;
 export type Instantiate<T> = (node: Nullable<HTMLElement>, params?: any) => Nullable<T>;
 export type Destroy<T> = (instance: Nullable<T>, params?: any) => void;
 
-export interface AptorConfiguration<T, P = any> {
+export interface AptorConfiguration<T> {
   getAPI: GetAPI<T>;
   instantiate: Instantiate<T>;
   destroy?: Destroy<T>;
-  params?: P;
+  params?: any;
 }
 
 /**
@@ -24,10 +25,10 @@ export interface AptorConfiguration<T, P = any> {
  * @param {Array} [deps=[]] - react dependencies array
  * @return domRef - can be bound to dom element
  */
-export default function useAptor<T, P = any>(
+export default function useAptor<T>(
   ref: Ref<APIObject>,
-  configuration: AptorConfiguration<T, P>,
-  deps: any[] = []
+  configuration: AptorConfiguration<T>,
+  deps: DependencyList = []
 ): RefObject<HTMLElement> {
   const [instance, setInstance] = useState<Nullable<T>>(null);
   const domRef = useRef<Nullable<HTMLElement>>(null);
