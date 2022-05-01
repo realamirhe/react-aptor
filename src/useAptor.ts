@@ -1,4 +1,5 @@
-import { useEffect, useImperativeHandle, useState, useRef, RefObject, useMemo, Ref } from 'react';
+import type { DependencyList, Ref, RefObject } from 'react';
+import { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 
 // types:misc
 type Nullable<T> = T | null;
@@ -27,7 +28,7 @@ export interface AptorConfiguration<T> {
 export default function useAptor<T>(
   ref: Ref<APIObject>,
   configuration: AptorConfiguration<T>,
-  deps: any[] = []
+  deps: DependencyList = []
 ): RefObject<HTMLElement> {
   const [instance, setInstance] = useState<Nullable<T>>(null);
   const domRef = useRef<Nullable<HTMLElement>>(null);
