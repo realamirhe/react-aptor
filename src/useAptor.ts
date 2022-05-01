@@ -1,9 +1,16 @@
 import type { DependencyList, Ref, RefObject } from 'react';
-import { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import {
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 // types:api
-export type APIObject = Record<string, any>; // function, class, ... as api-value
-export type APIGenerator = () => APIObject;
+// NOTE: There is no limitation in api return value
+// Every thing it returns will directly get placed in the `ref.current`
+export type APIGenerator = () => any;
 export type GetAPI<T> = (instance: T | null, prams?: any) => APIGenerator;
 // types:configuration
 export type Instantiate<T, U extends HTMLElement = HTMLElement> = (
@@ -12,7 +19,11 @@ export type Instantiate<T, U extends HTMLElement = HTMLElement> = (
 ) => T | null;
 export type Destroy<T> = (instance: T | null, params?: any) => void;
 
-export interface AptorConfiguration<T, U extends HTMLElement = HTMLElement, P = unknown> {
+export interface AptorConfiguration<
+  T,
+  U extends HTMLElement = HTMLElement,
+  P = unknown
+> {
   getAPI: GetAPI<T>;
   instantiate: Instantiate<T, U>;
   destroy?: Destroy<T>;
@@ -26,8 +37,12 @@ export interface AptorConfiguration<T, U extends HTMLElement = HTMLElement, P = 
  * @param {Array} [deps=[]] - react dependencies array
  * @return domRef - can be bound to dom element
  */
-export default function useAptor<T, U extends HTMLElement = HTMLElement, P = unknown>(
-  ref: Ref<APIObject>,
+export default function useAptor<
+  T,
+  U extends HTMLElement = HTMLElement,
+  P = unknown
+>(
+  ref: Ref<unknown>,
   configuration: AptorConfiguration<T, U, P>,
   deps: DependencyList = []
 ): RefObject<U> {
