@@ -69,7 +69,6 @@ describe('React aptor hook flow check', () => {
   test('The hook must return correct value', () => {
     const { result } = renderHook(() => {
       const ref = useRef<APITypes>(jest.fn() as any);
-      // @ts-ignore
       useAptor(ref, { instantiate, getAPI, params });
       return ref;
     });
