@@ -2,19 +2,19 @@ import { renderHook } from '@testing-library/react-hooks';
 import React, { useRef } from 'react';
 import useAptor from '../src/useAptor';
 
-const MOCK_INSTANCE = {
-  version: '0.0.1',
-  getVersion() {
-    return this.version as string;
-  },
-};
-interface APITypes {
-  version: string;
-  get_version: () => string;
-}
-
 describe('React aptor hook flow check', () => {
   afterEach(() => jest.clearAllMocks());
+
+  const MOCK_INSTANCE = {
+    version: '0.0.1',
+    getVersion() {
+      return this.version as string;
+    },
+  };
+  interface APITypes {
+    version: string;
+    get_version: () => string;
+  }
 
   const ref = { current: jest.fn() };
   const params = {};
@@ -59,10 +59,16 @@ describe('React aptor hook flow check', () => {
 
       expect(useImperativeHandleMock.mock.calls[0][0]).toBe(ref);
       expect(useImperativeHandleMock.mock.calls[0][1]).toBe(getAPIDefaultMode);
-      expect(useImperativeHandleMock.mock.calls[0][2][0]).toBe(getAPIDefaultMode);
+      expect(useImperativeHandleMock.mock.calls[0][2][0]).toBe(
+        getAPIDefaultMode
+      );
       expect(useImperativeHandleMock.mock.calls[1][0]).toBe(ref);
-      expect(useImperativeHandleMock.mock.calls[1][1]).not.toBe(getAPIDefaultMode);
-      expect(useImperativeHandleMock.mock.calls[1][2][0]).not.toEqual(getAPIDefaultMode);
+      expect(useImperativeHandleMock.mock.calls[1][1]).not.toBe(
+        getAPIDefaultMode
+      );
+      expect(useImperativeHandleMock.mock.calls[1][2][0]).not.toEqual(
+        getAPIDefaultMode
+      );
     });
   });
 
