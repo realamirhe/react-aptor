@@ -85,14 +85,13 @@
 
 <p align="center"><img src="../assets/connector.svg"></p>
 
-برای اتصال api ها به react شما نیاز دارید که یک `component
-forwardRef` تعریف کنید و forwarded-ref به همراه توابع تعریف شده در مرحله ۱ و مرحله ۲ را به `useAptor` تحویل بدهید. useAptor به عنوان خروجی یک ref به شما باز‌میگرداند که نیاز است آن را به المان dom ای که تعریف کرده‌اید متصل کنید.
+برای اتصال api ها به react شما نیاز دارید که یک `component forwardRef` تعریف کنید و forwarded-ref به همراه توابع تعریف شده در مرحله ۱ و مرحله ۲ را به `useAptor` تحویل بدهید. useAptor به عنوان خروجی یک ref به شما باز‌میگرداند که نیاز است آن را به المان dom ای که تعریف کرده‌اید متصل کنید.
 
 ### استفاده از api هایی که تعریف شده
 
 <p align="center"><img src="../assets/usage.svg"></p>
 
-برای استفاده از api ها در scope (لایه) بالاتر نیاز است از `createRef` در react  یک ref بسازید
+برای استفاده از api ها در scope (لایه) بالاتر نیاز است از `createRef` در react یک ref بسازید
 استفاده کرده و آن را به `Connector` که در مرحله ۳ تعریف کردیم تحویل بدهید. به این ترتیب میتوانید به تمامی api ها از طریق `ref.current` دسترسی پیدا کرد.
 
 ## حمایت مالی از
@@ -120,9 +119,8 @@ forwardRef` تعریف کنید و forwarded-ref به همراه توابع تع
 [مثال نحوه اتصال rive به react](https://stackblitz.com/edit/react-aptor-rivejs)
 
 ### [Howler.js]
+
 [مثال نحوه اتصال howler به react](https://codesandbox.io/s/react-aptor--howler-4o8t4)
-
-
 
 <p align="center"><a href="../samples.md">مشاهده تمام نمونه‌ها</a></p>
 </div>

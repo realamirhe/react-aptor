@@ -26,11 +26,9 @@ Minimal API Connector for react
 
 English | <a href="./doc/localization/fa.md">Persian</a> | (<a href="https://github.com/realamirhe/react-aptor/issues/new">add your langauge</a>)
 
-
 Don’t waste your time by finding react version of your favorite javascript package, keep control of your `API` now.
 
 **Documentation**: You can find the react-aptor documentation [on the website](https://ahimico.github.io/docs/react-aptor/tutorials-overview).
-
 
 ## Why
 
@@ -41,8 +39,8 @@ On the other hand, these packages might be developed by different teams, hence d
 
 If you are still not convinced you can read this [article](https://dev.to/amirhe/aptor-is-all-you-need-3din)
 
-
 **Other Concerns**:
+
 - Finding DOM nodes by ReactDOM.findDOMNode
 - Extensively usage of memorization to improve performance or prevent extra re-renders
 - Another duplication layer for all API definitions in react that increase the project size
@@ -294,6 +292,7 @@ The following examples are for howler integration using react-aptor:
 ### 💡 How to get API-Object type
 
 You can use something like the follwing:
+
 ```ts
 export type APITypes = ReturnType<ReturnType<typeof getAPI>>;
 ```
@@ -357,11 +356,11 @@ React dependencies array for re-instantiating your third-party packages. It will
 
 ## Color Palettes
 
-![#c7589e](https://via.placeholder.com/30/c7589e/000000?text=+ "#c7589e")
-![#ed5b6e](https://via.placeholder.com/30/ed5b6e/000000?text=+ "#ed5b6e")
-![#f9b919](https://via.placeholder.com/30/f9b919/000000?text=+ "#f9b919")
-![#26abe2](https://via.placeholder.com/30/26abe2/000000?text=+ "#26abe2")
-![#129f4d](https://via.placeholder.com/30/129f4d/000000?text=+ "#129f4d")
+![#c7589e](https://via.placeholder.com/30/c7589e/000000?text=+ '#c7589e')
+![#ed5b6e](https://via.placeholder.com/30/ed5b6e/000000?text=+ '#ed5b6e')
+![#f9b919](https://via.placeholder.com/30/f9b919/000000?text=+ '#f9b919')
+![#26abe2](https://via.placeholder.com/30/26abe2/000000?text=+ '#26abe2')
+![#129f4d](https://via.placeholder.com/30/129f4d/000000?text=+ '#129f4d')
 
 ## Samples
 
