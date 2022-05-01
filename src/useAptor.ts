@@ -12,11 +12,11 @@ export type Instantiate<T, U extends HTMLElement = HTMLElement> = (
 ) => T | null;
 export type Destroy<T> = (instance: T | null, params?: any) => void;
 
-export interface AptorConfiguration<T, U extends HTMLElement = HTMLElement> {
+export interface AptorConfiguration<T, U extends HTMLElement = HTMLElement, P = unknown> {
   getAPI: GetAPI<T>;
   instantiate: Instantiate<T, U>;
   destroy?: Destroy<T>;
-  params?: any;
+  params?: P;
 }
 
 /**
@@ -26,9 +26,9 @@ export interface AptorConfiguration<T, U extends HTMLElement = HTMLElement> {
  * @param {Array} [deps=[]] - react dependencies array
  * @return domRef - can be bound to dom element
  */
-export default function useAptor<T, U extends HTMLElement = HTMLElement>(
+export default function useAptor<T, U extends HTMLElement = HTMLElement, P = unknown>(
   ref: Ref<APIObject>,
-  configuration: AptorConfiguration<T, U>,
+  configuration: AptorConfiguration<T, U, P>,
   deps: DependencyList = []
 ): RefObject<U> {
   const [instance, setInstance] = useState<T | null>(null);
