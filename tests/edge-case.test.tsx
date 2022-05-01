@@ -1,4 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
+import { createRef, useRef } from 'react';
 import useAptor from '../src/useAptor';
 
 describe('All getAPI must be accepted and change the output ref', () => {
@@ -26,6 +27,12 @@ describe('All getAPI must be accepted and change the output ref', () => {
     expect(ref.current).toBe(Number);
   });
 
+  test('The Symbol return value should work', () => {
+    const getAPI = () => () => Symbol.for('return-value');
+    renderHook(() => useAptor(ref, { instantiate, getAPI }));
+    expect(ref.current).toBe(Symbol.for('return-value'));
+  });
+
   test('The function return value should work', () => {
     const getAPI = () => () => JSON.parse;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
@@ -37,5 +44,29 @@ describe('All getAPI must be accepted and change the output ref', () => {
     const getAPI = () => () => getAPIReturnValue;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
     expect(ref.current).toBe(getAPIReturnValue);
+  });
+});
+
+describe('different ref input must work as expected', () => {
+  const instantiate = jest.fn();
+
+  test('The useRef should work', () => {
+    const getAPI = () => () => Symbol.for('useRef');
+    const { result } = renderHook(() => {
+      const ref = useRef<Symbol>();
+      useAptor(ref, { instantiate, getAPI });
+      return ref;
+    });
+    expect(result.current.current).toBe(Symbol.for('useRef'));
+  });
+
+  test('The createRef should work', () => {
+    const getAPI = () => () => Symbol.for('createRef');
+    const { result } = renderHook(() => {
+      const ref = createRef<Symbol>();
+      useAptor(ref, { instantiate, getAPI });
+      return ref;
+    });
+    expect(result.current.current).toBe(Symbol.for('createRef'));
   });
 });
