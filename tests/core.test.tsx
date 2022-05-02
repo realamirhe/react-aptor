@@ -2,6 +2,10 @@ import { renderHook } from '@testing-library/react-hooks';
 import React, { useRef } from 'react';
 import useAptor from '../src/useAptor';
 
+/**
+ * NOTE: the stability of test are not guaranteed cause they totally
+ * relied on the structure of this file
+ */
 describe('React aptor hook flow check', () => {
   afterEach(() => jest.clearAllMocks());
 
