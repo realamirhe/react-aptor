@@ -69,4 +69,16 @@ describe('different ref input must work as expected', () => {
     });
     expect(result.current.current).toBe(Symbol.for('createRef'));
   });
+
+  test('The old class base ref function should work', () => {
+    const getAPI = () => () => Symbol.for('old-ref-function');
+    const { result } = renderHook(() => {
+      const oldRef = jest.fn(($node) => $node);
+      useAptor(oldRef, { instantiate, getAPI });
+      return oldRef;
+    });
+
+    expect(result.current).toBeCalledTimes(1);
+    expect(result.current).toBeCalledWith(Symbol.for('old-ref-function'));
+  });
 });
