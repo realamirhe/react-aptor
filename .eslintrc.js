@@ -13,7 +13,6 @@ module.exports = {
         quoteProps: 'as-needed',
         jsxSingleQuote: false,
         bracketSpacing: true,
-        jsxBracketSameLine: true,
         arrowParens: 'always',
         endOfLine: 'lf',
       },
