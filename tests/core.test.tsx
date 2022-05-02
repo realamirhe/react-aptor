@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import React, { useRef } from 'react';
-import useAptor from '../src/useAptor';
+import useAptor from 'react-aptor';
 
 /**
  * NOTE: the stability of test are not guaranteed cause they totally

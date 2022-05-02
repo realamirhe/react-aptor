@@ -3,10 +3,11 @@
   "trailingComma": "es5",
   "tabWidth": 2,
   "printWidth": 80,
-  "semicolons": true,
+  "semi": true,
   "quoteProps": "as-needed",
   "jsxSingleQuote": false,
   "bracketSpacing": true,
+  "bracketSameLine": true,
   "arrowParens": "always",
   "endOfLine": "lf"
 }

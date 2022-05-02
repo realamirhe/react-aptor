@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { createRef, useRef } from 'react';
-import useAptor from '../src/useAptor';
+import useAptor from 'react-aptor';
 
 describe('All getAPI must be accepted and change the output ref', () => {
   const instantiate = jest.fn();

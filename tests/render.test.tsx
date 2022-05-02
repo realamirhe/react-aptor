@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { createRef } from 'react';
-import useAptor from '../src/useAptor';
+import useAptor from 'react-aptor';
 
 describe('Basic re-rendering', () => {
   const ref = { current: jest.fn() };
