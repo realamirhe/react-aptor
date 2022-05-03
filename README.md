@@ -24,7 +24,7 @@ Minimal API Connector for react
 
 ---
 
-English | <a href="./doc/localization/fa.md">Persian</a> | (<a href="https://github.com/realamirhe/react-aptor/issues/new">add your langauge</a>)
+English | <a href="./doc/localization/fa.md">Persian</a> | (<a href="https://github.com/realamirhe/react-aptor/issues/new">add your language</a>)
 
 Don’t waste your time by finding react version of your favorite javascript package, keep control of your `API` now.
 
