@@ -74,6 +74,7 @@ function createUMDConfig(input, output, env) {
       format: 'umd',
       exports: 'named',
       name: 'react-aptor',
+      globals: { react: 'react' },
     },
     external,
     plugins: [

@@ -43,6 +43,7 @@
     "prebuild": "shx rm -rf dist",
     "build": "rollup -c",
     "postbuild": "yarn copy",
+    "precopy": "shx cp -r dist/src/* dist/esm && shx cp -r dist/src/* dist && shx rm -rf dist/src && shx rm -rf dist/{src,tests}",
     "copy": "concurrently -m 8 'yarn:copy:*'",
     "copy:package-json": "shx cp package.json dist && json -I -f dist/package.json -e 'this.devDependencies=undefined; this.scripts=undefined; this.publishConfig=undefined'",
     "copy:static-content": "shx cp README.md LICENSE dist",
