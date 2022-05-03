@@ -67,7 +67,6 @@ const createCommonJSConfig = (input, output) => ({
 });
 
 function createUMDConfig(input, output, env) {
-  const c = output.split('/').pop();
   return {
     input,
     output: {
