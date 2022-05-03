@@ -42,7 +42,7 @@ export interface AptorConfiguration<TInstance, TElement, TParams> {
  * @param {Array} [deps=[]] - react dependencies array
  * @return domRef - can be bound to dom element
  */
-export default function useAptor<
+export function useAptor<
   TInstance,
   TElement extends HTMLElement = HTMLElement,
   TParams = unknown
@@ -72,3 +72,5 @@ export default function useAptor<
 
   return domRef;
 }
+
+export default useAptor;
