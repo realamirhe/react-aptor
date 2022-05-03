@@ -26,14 +26,16 @@ describe('React aptor hook flow check', () => {
 
   const getAPIDefaultMode = () => ({ ready: false });
 
-  const getAPI = jest.fn((instance, _params) => {
-    if (instance === null) return getAPIDefaultMode;
+  const getAPI = jest.fn(
+    (instance: null | typeof MOCK_INSTANCE, _params?: typeof params) => {
+      if (instance === null) return getAPIDefaultMode;
 
-    return () => ({
-      version: instance.version,
-      get_version: instance.getVersion,
-    });
-  });
+      return () => ({
+        version: instance.version,
+        get_version: instance.getVersion,
+      });
+    }
+  );
 
   test('Hook basic props must be called with correct order', () => {
     renderHook(() => useAptor(ref, { instantiate, getAPI, params }));
@@ -93,11 +95,11 @@ describe('React aptor hook flow check', () => {
   test('The getAPI must be called with correct values', () => {
     renderHook(() => useAptor(ref, { instantiate, getAPI, params }));
 
-    expect(getAPI.mock.calls[0][0]).toBe(null);
-    expect(getAPI.mock.calls[0][1]).toBe(params);
+    expect(getAPI.mock.calls[0]![0]).toBe(null);
+    expect(getAPI.mock.calls[0]![1]).toBe(params);
 
-    expect(getAPI.mock.calls[1][0]).toBe(MOCK_INSTANCE);
-    expect(getAPI.mock.calls[1][1]).toBe(params);
+    expect(getAPI.mock.calls[1]![0]).toBe(MOCK_INSTANCE);
+    expect(getAPI.mock.calls[1]![1]).toBe(params);
   });
 
   describe('The useState section', () => {

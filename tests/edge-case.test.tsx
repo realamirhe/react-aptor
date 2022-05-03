@@ -4,7 +4,7 @@ import useAptor from 'react-aptor';
 
 describe('All getAPI must be accepted and change the output ref', () => {
   const instantiate = jest.fn();
-  let ref = null;
+  let ref: { current: jest.Mock } | null = null;
   beforeEach(() => {
     ref = { current: jest.fn() };
   });
@@ -12,38 +12,38 @@ describe('All getAPI must be accepted and change the output ref', () => {
   test('The noop return function should work', () => {
     const getAPI = () => () => {};
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref.current).toBe(undefined);
+    expect(ref!.current).toBe(undefined);
   });
 
   test('The null return value should work', () => {
     const getAPI = () => () => null;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref.current).toBe(null);
+    expect(ref!.current).toBe(null);
   });
 
   test('The Number class return value should work', () => {
     const getAPI = () => () => Number;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref.current).toBe(Number);
+    expect(ref!.current).toBe(Number);
   });
 
   test('The Symbol return value should work', () => {
     const getAPI = () => () => Symbol.for('return-value');
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref.current).toBe(Symbol.for('return-value'));
+    expect(ref!.current).toBe(Symbol.for('return-value'));
   });
 
   test('The function return value should work', () => {
     const getAPI = () => () => JSON.parse;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref.current).toBe(JSON.parse);
+    expect(ref!.current).toBe(JSON.parse);
   });
 
   test('The key-value pair return value should work', () => {
     const getAPIReturnValue = { parse: JSON.parse, navigator };
     const getAPI = () => () => getAPIReturnValue;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref.current).toBe(getAPIReturnValue);
+    expect(ref!.current).toBe(getAPIReturnValue);
   });
 });
 
