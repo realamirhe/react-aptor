@@ -1,24 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "jsx": "react-jsx",
+    "baseUrl": ".",
     "declaration": true,
-    "pretty": true,
-    "rootDir": "src",
-    "sourceMap": false,
-    "strict": true,
     "esModuleInterop": true,
+    "exactOptionalPropertyTypes": true,
+    "importHelpers": true,
+    "jsx": "react-jsx",
+    "lib": ["es2018", "dom"],
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noImplicitAny": false,
-    "noFallthroughCasesInSwitch": true,
     "outDir": "lib",
-    "lib": ["es2018", "dom"],
-    "importHelpers": true
+    "pretty": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "esnext",
+    "paths": {
+      "react-aptor": ["./src/index.ts"],
+      "react-aptor/*": ["./src/*.ts"]
+    }
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "lib", "esm"]
+  "include": ["src", "tests"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,22 +1,23 @@
-module.exports = {
-  presets: [
-    [
-      '@babel/preset-env',
-      {
-        targets: {
-          node: 'current',
+module.exports = (api, targets) => {
+  // https://babeljs.io/docs/en/config-files#config-function-api
+  const isTestEnv = api.env('test');
+
+  return {
+    babelrc: false,
+    ignore: ['./node_modules'],
+    presets: [
+      [
+        '@babel/preset-env',
+        {
+          loose: true,
+          modules: isTestEnv ? 'commonjs' : false,
+          targets: isTestEnv ? { node: 'current' } : targets,
         },
-      },
+      ],
     ],
-    '@babel/preset-react',
-    '@babel/preset-typescript',
-  ],
-  env: {
-    test: {
-      plugins: ['dynamic-import-node'],
-    },
-    production: {
-      plugins: ['@babel/plugin-syntax-dynamic-import'],
-    },
-  },
+    plugins: [
+      ['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }],
+      ['@babel/plugin-transform-typescript'],
+    ],
+  };
 };

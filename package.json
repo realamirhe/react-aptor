@@ -25,24 +25,29 @@
     "email": "amirhosseinebrahimi77@gmail.com"
   },
   "sideEffects": false,
-  "main": "lib/index.js",
-  "module": "esm/index.js",
-  "types": "lib/index.d.ts",
-  "typings": "lib/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./index.d.ts",
+      "module": "./esm/index.js",
+      "import": "./esm/index.mjs",
+      "default": "./index.js"
+    }
+  },
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "files": [
-    "lib/",
-    "esm/",
-    "src/"
+    "**"
   ],
   "scripts": {
-    "prebuild": "yarn clean",
-    "build": "yarn build:cjs && yarn build:es",
-    "build:cjs": "tsc",
-    "build:es": "tsc -m esNext --outDir esm",
-    "clean": "rimraf lib esm coverage",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "yarn lint --fix",
-    "lint:types": "tsc --noEmit",
+    "prebuild": "shx rm -rf dist",
+    "build": "rollup -c",
+    "postbuild": "yarn copy",
+    "copy": "concurrently -m 8 'yarn:copy:*'",
+    "copy:package-json": "shx cp package.json dist && json -I -f dist/package.json -e 'this.devDependencies=undefined; this.scripts=undefined; this.publishConfig=undefined'",
+    "copy:static-content": "shx cp README.md LICENSE dist",
+    "eslint": "eslint --fix '*.{js,json}' '{src,tests}/**/*.{ts,tsx}'",
+    "eslint:ci": "eslint '*.{js,json}' '{src,tests}/**/*.{ts,tsx}'",
     "prepare": "husky install",
     "pretest": "tsc --noEmit",
     "test": "jest",
@@ -52,10 +57,19 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
+    "@babel/plugin-external-helpers": "^7.16.7",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-react-jsx": "^7.17.3",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/plugin-transform-typescript": "^7.16.8",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.2.1",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@rollup/plugin-typescript": "^8.3.2",
     "@swc/core": "^1.2.174",
     "@swc/jest": "^0.2.20",
     "@testing-library/react": "^13.1.1",
@@ -68,11 +82,15 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.5",
     "babel-plugin-dynamic-import-node": "^2.3.3",
+    "concurrently": "^7.1.0",
+    "esbuild": "^0.14.38",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.1.5",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
@@ -81,12 +99,16 @@
     "husky": "^7.0.4",
     "jest": "^28.0.3",
     "jest-environment-jsdom": "^28.0.2",
+    "json": "^11.0.0",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-test-renderer": "^18.1.0",
-    "rimraf": "^3.0.2",
+    "rollup": "^2.70.2",
+    "rollup-plugin-esbuild": "^4.9.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "shx": "^0.3.4",
     "sort-package-json": "^1.55.0",
     "ts-jest": "^27.1.4",
     "ts-loader": "^9.3.0",
@@ -100,6 +122,9 @@
     "react": {
       "optional": true
     }
+  },
+  "engines": {
+    "node": ">=12.7.0"
   },
   "publishConfig": {
     "access": "public"

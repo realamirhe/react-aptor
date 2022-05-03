@@ -12,6 +12,7 @@ export default {
     '^react-aptor$': '<rootDir>/src/index.ts',
     '^react-aptor/(.*)$': '<rootDir>/src/$1.ts',
   },
+  modulePathIgnorePatterns: ['dist'],
   testRegex: 'test.(ts|tsx)$',
   coverageDirectory: './coverage/',
   collectCoverage: true,
