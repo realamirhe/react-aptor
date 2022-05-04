@@ -1,4 +1,4 @@
-import useAptor from './useAptor';
+import { useAptor } from './use-aptor';
 
 export default useAptor;
-export * from './useAptor';
+export * from './use-aptor';
