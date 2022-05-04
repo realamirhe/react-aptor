@@ -63,18 +63,21 @@ describe('React aptor hook flow check', () => {
     it('Should call useImperativeHandle with correct values', () => {
       renderHook(() => useAptor(ref, { instantiate, getAPI, params }));
 
-      expect(useImperativeHandleMock.mock.calls[0][0]).toBe(ref);
-      expect(useImperativeHandleMock.mock.calls[0][1]).toBe(getAPIDefaultMode);
-      expect(useImperativeHandleMock.mock.calls[0][2][0]).toBe(
+      expect(useImperativeHandleMock.mock.calls[0]).toEqual([
+        ref,
+        getAPIDefaultMode,
+        [getAPIDefaultMode],
+      ]);
+
+      expect(useImperativeHandleMock.mock.calls[1]?.[0]).toBe(ref);
+      expect(useImperativeHandleMock.mock.calls[1]?.[1]).toBeDefined();
+      expect(useImperativeHandleMock.mock.calls[1]?.[1]).not.toEqual(
         getAPIDefaultMode
       );
-      expect(useImperativeHandleMock.mock.calls[1][0]).toBe(ref);
-      expect(useImperativeHandleMock.mock.calls[1][1]).not.toBe(
-        getAPIDefaultMode
-      );
-      expect(useImperativeHandleMock.mock.calls[1][2][0]).not.toEqual(
-        getAPIDefaultMode
-      );
+      expect(useImperativeHandleMock.mock.calls[1]?.[2]).toBeDefined();
+      expect(useImperativeHandleMock.mock.calls[1]?.[2]).not.toEqual([
+        getAPIDefaultMode,
+      ]);
     });
   });
 
