@@ -12,7 +12,7 @@ describe('Basic re-rendering', () => {
   type TParams = typeof params;
   const instance = Symbol.for('instance') as symbol;
   type TInstance = typeof instance;
-  const instantiate = jest.fn<TInstance | null, [HTMLElement | null, TParams?]>(
+  const instantiate = jest.fn<TInstance, [HTMLElement | null, TParams?]>(
     () => instance
   );
   const getAPI = jest.fn<APIGenerator, [TInstance | null, TParams?]>(
@@ -20,7 +20,7 @@ describe('Basic re-rendering', () => {
   );
   const destroy = jest.fn<void, [TInstance | null, TParams?]>();
 
-  it('Should not cause any extra call change when non dependant arguments change', () => {
+  it('should not cause any extra call change when non dependant arguments change', () => {
     const { rerender } = renderHook((configs) => useAptor(ref, configs), {
       initialProps: {
         instantiate,
@@ -66,7 +66,7 @@ describe('Basic re-rendering', () => {
     expect(newDestroy).toBeCalledTimes(0);
   });
 
-  it('Should call corresponding life-cycle in the rerendering phase', async () => {
+  it('should call corresponding life-cycle in the rerendering phase', async () => {
     const { rerender } = renderHook(
       ({
         deps,
@@ -101,7 +101,7 @@ describe('Basic re-rendering', () => {
   });
 
   // FIXME: this needs to be fixed
-  it.skip('Should call corresponding life-cycle when deps array changes', async () => {
+  it.skip('should call corresponding life-cycle when deps array changes', async () => {
     const { rerender, result, waitFor } = renderHook(
       ({ getAPI, deps }) => {
         const ref = createRef();

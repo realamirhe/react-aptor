@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { renderHook } from '@testing-library/react-hooks';
-import { useAptor } from 'react-aptor';
+import { APIGenerator, GetAPI, useAptor } from 'react-aptor';
 
 /**
  * NOTE: the stability of test are not guaranteed cause they totally
@@ -21,23 +21,31 @@ describe('React aptor hook flow check', () => {
   }
 
   const ref = { current: jest.fn() };
-  const params = {};
-  const instantiate = jest.fn(() => MOCK_INSTANCE);
-
-  const getAPIDefaultMode = () => ({ ready: false });
-
-  const getAPI = jest.fn(
-    (instance: null | typeof MOCK_INSTANCE, _params?: typeof params) => {
-      if (instance === null) return getAPIDefaultMode;
-
-      return () => ({
-        version: instance.version,
-        get_version: instance.getVersion,
-      });
-    }
+  const params = Symbol.for('params') as symbol;
+  type TParams = typeof params;
+  type TInstance = typeof MOCK_INSTANCE;
+  const instantiate = jest.fn<TInstance, [HTMLElement | null, TParams?]>(
+    () => MOCK_INSTANCE
   );
 
-  it('Should call internal life-cycle of the hooks with correct order', () => {
+  const getAPIDefaultMode = () => ({ ready: false });
+  const getAPIDefinition: GetAPI<TInstance, TParams> = (
+    instance: null | typeof MOCK_INSTANCE,
+    _params?: TParams
+  ) => {
+    if (instance === null) return getAPIDefaultMode;
+
+    return () => ({
+      version: instance.version,
+      get_version: instance.getVersion,
+    });
+  };
+
+  const getAPI = jest.fn<APIGenerator, [TInstance | null, TParams?]>(
+    getAPIDefinition
+  );
+
+  it('should call internal life-cycle of the hooks with correct order', () => {
     const destroy = jest.fn();
     renderHook(() => useAptor(ref, { instantiate, getAPI, destroy, params }));
 
@@ -55,12 +63,12 @@ describe('React aptor hook flow check', () => {
 
     afterAll(() => spy.mockRestore());
 
-    it('Should call useImperativeHandle  with correct order', () => {
+    it('should call useImperativeHandle  with correct order', () => {
       renderHook(() => useAptor(ref, { instantiate, getAPI, params }));
       expect(useImperativeHandleMock).toBeCalledTimes(2);
     });
 
-    it('Should call useImperativeHandle with correct values', () => {
+    it('should call useImperativeHandle with correct values', () => {
       renderHook(() => useAptor(ref, { instantiate, getAPI, params }));
 
       expect(useImperativeHandleMock.mock.calls[0]).toEqual([
@@ -81,7 +89,7 @@ describe('React aptor hook flow check', () => {
     });
   });
 
-  it('Should return correct value', () => {
+  it('should return correct value', () => {
     const { result } = renderHook(() => {
       const ref = useRef<APITypes>(jest.fn() as any);
       useAptor(ref, { instantiate, getAPI, params });
@@ -95,12 +103,12 @@ describe('React aptor hook flow check', () => {
     expect(ref.current.get_version()).toBe(ref.current.version);
   });
 
-  it('Should call instantiate with correct values', () => {
+  it('should call instantiate with correct values', () => {
     renderHook(() => useAptor(ref, { instantiate, getAPI, params }));
     expect(instantiate).toBeCalledWith(null, params);
   });
 
-  it('Should call getAPI with correct values', () => {
+  it('should call getAPI with correct values', () => {
     renderHook(() => useAptor(ref, { instantiate, getAPI, params }));
 
     expect(getAPI.mock.calls).toEqual([
@@ -110,7 +118,7 @@ describe('React aptor hook flow check', () => {
   });
 
   describe('The useState section', () => {
-    it('Should call useState with correct order', () => {
+    it('should call useState with correct order', () => {
       // useState
       const setState = jest.fn();
       const useStateMock = (initState: unknown) => [initState, setState];

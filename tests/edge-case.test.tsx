@@ -11,37 +11,37 @@ describe('All getAPI must be accepted and change the output ref', () => {
     ref = { current: jest.fn() };
   });
 
-  it('Should work with the noop function as return value', () => {
+  it('should work with the noop function as return value', () => {
     const getAPI = () => () => {};
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
     expect(ref?.current).toBe(undefined);
   });
 
-  it('Should work with the null as return value', () => {
+  it('should work with the null as return value', () => {
     const getAPI = () => () => null;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
     expect(ref?.current).toBe(null);
   });
 
-  it('Should work with the Number as return value', () => {
+  it('should work with the Number as return value', () => {
     const getAPI = () => () => Number;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
     expect(ref?.current).toBe(Number);
   });
 
-  it('Should work with the Symbol as return value', () => {
+  it('should work with the Symbol as return value', () => {
     const getAPI = () => () => Symbol.for('return-value');
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
     expect(ref?.current).toBe(Symbol.for('return-value'));
   });
 
-  it('Should work with function as return value', () => {
+  it('should work with function as return value', () => {
     const getAPI = () => () => JSON.parse;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
     expect(ref?.current).toBe(JSON.parse);
   });
 
-  it('Should work with the key-value pair as return value', () => {
+  it('should work with the key-value pair as return value', () => {
     const getAPIReturnValue = { parse: JSON.parse, navigator };
     const getAPI = () => () => getAPIReturnValue;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
@@ -49,10 +49,10 @@ describe('All getAPI must be accepted and change the output ref', () => {
   });
 });
 
-describe('different ref input must work as expected', () => {
+describe('Different ref input must work as expected', () => {
   const instantiate = jest.fn();
 
-  it('Should set the current for the useRef as ref argument', () => {
+  it('should set the current for the useRef as ref argument', () => {
     const getAPI = () => () => Symbol.for('useRef');
     const { result } = renderHook(() => {
       const ref = useRef<symbol>();
@@ -62,7 +62,7 @@ describe('different ref input must work as expected', () => {
     expect(result.current.current).toBe(Symbol.for('useRef'));
   });
 
-  it('Should set the current for the createRef as ref argument', () => {
+  it('should set the current for the createRef as ref argument', () => {
     const getAPI = () => () => Symbol.for('createRef');
     const { result } = renderHook(() => {
       const ref = createRef<symbol>();
@@ -72,7 +72,7 @@ describe('different ref input must work as expected', () => {
     expect(result.current.current).toBe(Symbol.for('createRef'));
   });
 
-  it('Should set the current for the old-base ref-setters as ref argument', () => {
+  it('should set the current for the old-base ref-setters as ref argument', () => {
     const getAPI = () => () => Symbol.for('old-ref-function');
     const { result } = renderHook(() => {
       const oldRef = jest.fn(($node) => $node);

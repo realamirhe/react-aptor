@@ -10,7 +10,7 @@ import {
 // types:api
 // NOTE: There is no limitation in api return value
 // Every thing it returns will directly get placed in the `ref.current`
-export type APIGenerator = () => any;
+export type APIGenerator = () => unknown;
 
 export type GetAPI<TInstance, TParams> = (
   instance: TInstance | null,
@@ -21,10 +21,10 @@ export type GetAPI<TInstance, TParams> = (
 export type Instantiate<TInstance, TElement, TParams> = (
   node: TElement | null,
   params?: TParams
-) => TInstance | null;
+) => TInstance;
 
 export type Destroy<TInstance, TParams> = (
-  instance: TInstance | null,
+  instance: TInstance,
   params?: TParams
 ) => void;
 
