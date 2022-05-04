@@ -28,8 +28,8 @@ jobs:
       fail-fast: false
       matrix:
         react:
-          - 16.8.0
-          - 17.0.0
+          # - 16.8.0
+          # - 17.0.0
           - 18.0.0
           - 18.1.0
           - 18.2.0-next-340060ccc-20220428
@@ -44,7 +44,6 @@ jobs:
       - run: yarn install --frozen-lockfile --check-files
       - name: Install legacy testing-library
         if: ${{ startsWith(matrix.react, '16.') || startsWith(matrix.react, '17.') }}
-        run: yarn add -D @testing-library/react@12.1.4
       - name: Patch for React 16
         if: ${{ startsWith(matrix.react, '16.') }}
         run: |
