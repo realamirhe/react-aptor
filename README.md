@@ -1,5 +1,5 @@
 <h1 align="center">React Aptor</h1>
-<p align="center"><img src="./doc/assets/logo.svg" alt="react aptor logo" width="450"></p>
+<p align="center"><img src="https://github.com/realamirhe/react-aptor/raw/master/doc/assets/logo.svg" alt="react aptor logo" width="450"></p>
 <p align="center">
 Minimal API Connector for react
   <br>
@@ -24,7 +24,7 @@ Minimal API Connector for react
 
 ---
 
-English | <a href="./doc/localization/fa.md">Persian</a> | (<a href="https://github.com/realamirhe/react-aptor/issues/new">add your language</a>)
+English | <a href="https://github.com/realamirhe/react-aptor/blob/master/doc/localization/fa.md">Persian</a> | (<a href="https://github.com/realamirhe/react-aptor/issues/new">add your language</a>)
 
 Don’t waste your time by finding react version of your favorite javascript package, keep control of your `API` now.
 
