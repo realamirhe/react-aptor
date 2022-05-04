@@ -38,12 +38,14 @@ describe('React aptor hook flow check', () => {
   );
 
   test('Hook basic props must be called with correct order', () => {
-    renderHook(() => useAptor(ref, { instantiate, getAPI, params }));
+    const destroy = jest.fn();
+    renderHook(() => useAptor(ref, { instantiate, getAPI, destroy, params }));
 
     expect(instantiate).toBeCalledTimes(1);
     expect(instantiate).toBeCalledWith(null, params);
 
     expect(getAPI).toBeCalledTimes(2);
+    expect(destroy).toBeCalledTimes(0);
   });
 
   describe('The useImperativeHandle section', () => {
