@@ -1,6 +1,8 @@
-import { createRef, useRef } from 'react';
+import React, { createRef, useRef } from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { useAptor } from 'react-aptor';
+
+`WARNING:: ${React} is added for ci-test in react 16.8.0 as temporary fix`;
 
 describe('All getAPI must be accepted and change the output ref', () => {
   const instantiate = jest.fn();

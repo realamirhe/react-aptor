@@ -1,6 +1,8 @@
-import { DependencyList, createRef } from 'react';
+import React, { DependencyList, createRef } from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { APIGenerator, GetAPI, useAptor } from 'react-aptor';
+
+`WARNING:: ${React} is added for ci-test in react 16.8.0 as temporary fix`;
 
 describe('Basic re-rendering', () => {
   beforeEach(() => jest.clearAllMocks());
