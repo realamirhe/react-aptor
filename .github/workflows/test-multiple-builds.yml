@@ -38,18 +38,18 @@ jobs:
       - name: Patch for CJS
         if: ${{ matrix.build == 'cjs' }}
         run: |
-          sed -i~ "s/<rootDir>\/src\(.*\)\.ts/<rootDir>\/dist\1.js/" package.json
+          sed -i~ "s/<rootDir>\/src\(.*\)\.ts/<rootDir>\/dist\1.js/" jest.config.ts
       - name: Patch for ESM
         if: ${{ matrix.build == 'esm' }}
         run: |
-          sed -i~ "s/<rootDir>\/src\(.*\)\.ts/<rootDir>\/dist\/esm\1.js" package.json
+          sed -i~ "s/<rootDir>\/src\(.*\)\.ts/<rootDir>\/dist\/esm\1.js" jest.config.ts
           sed -i~ "1s/^/import.meta.env=import.meta.env||{};import.meta.env.MODE='${NODE_ENV}';/" tests/*.tsx
         env:
           NODE_ENV: ${{ matrix.env }}
       - name: Patch for UMD/SystemJS
         if: ${{ matrix.build == 'umd' || matrix.build == 'system' }}
         run: |
-          sed -i~ "s/<rootDir>\/src\(.*\)\.ts/<rootDir>\/dist\/${BUILD}\1.${NODE_ENV}.js/" package.json
+          sed -i~ "s/<rootDir>\/src\(.*\)\.ts/<rootDir>\/dist\/${BUILD}\1.${NODE_ENV}.js/" jest.config.ts
         env:
           BUILD: ${{ matrix.build }}
           NODE_ENV: ${{ matrix.env }}
