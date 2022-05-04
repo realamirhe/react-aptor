@@ -1,6 +1,6 @@
-import { renderHook } from '@testing-library/react-hooks';
 import { createRef, useRef } from 'react';
-import useAptor from 'react-aptor';
+import { renderHook } from '@testing-library/react-hooks';
+import { useAptor } from 'react-aptor';
 
 describe('All getAPI must be accepted and change the output ref', () => {
   const instantiate = jest.fn();
@@ -9,68 +9,68 @@ describe('All getAPI must be accepted and change the output ref', () => {
     ref = { current: jest.fn() };
   });
 
-  test('The noop return function should work', () => {
+  it('Should work with the noop function as return value', () => {
     const getAPI = () => () => {};
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref!.current).toBe(undefined);
+    expect(ref?.current).toBe(undefined);
   });
 
-  test('The null return value should work', () => {
+  it('Should work with the null as return value', () => {
     const getAPI = () => () => null;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref!.current).toBe(null);
+    expect(ref?.current).toBe(null);
   });
 
-  test('The Number class return value should work', () => {
+  it('Should work with the Number as return value', () => {
     const getAPI = () => () => Number;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref!.current).toBe(Number);
+    expect(ref?.current).toBe(Number);
   });
 
-  test('The Symbol return value should work', () => {
+  it('Should work with the Symbol as return value', () => {
     const getAPI = () => () => Symbol.for('return-value');
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref!.current).toBe(Symbol.for('return-value'));
+    expect(ref?.current).toBe(Symbol.for('return-value'));
   });
 
-  test('The function return value should work', () => {
+  it('Should work with function as return value', () => {
     const getAPI = () => () => JSON.parse;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref!.current).toBe(JSON.parse);
+    expect(ref?.current).toBe(JSON.parse);
   });
 
-  test('The key-value pair return value should work', () => {
+  it('Should work with the key-value pair as return value', () => {
     const getAPIReturnValue = { parse: JSON.parse, navigator };
     const getAPI = () => () => getAPIReturnValue;
     renderHook(() => useAptor(ref, { instantiate, getAPI }));
-    expect(ref!.current).toBe(getAPIReturnValue);
+    expect(ref?.current).toBe(getAPIReturnValue);
   });
 });
 
 describe('different ref input must work as expected', () => {
   const instantiate = jest.fn();
 
-  test('The useRef should work', () => {
+  it('Should set the current for the useRef as ref argument', () => {
     const getAPI = () => () => Symbol.for('useRef');
     const { result } = renderHook(() => {
-      const ref = useRef<Symbol>();
+      const ref = useRef<symbol>();
       useAptor(ref, { instantiate, getAPI });
       return ref;
     });
     expect(result.current.current).toBe(Symbol.for('useRef'));
   });
 
-  test('The createRef should work', () => {
+  it('Should set the current for the createRef as ref argument', () => {
     const getAPI = () => () => Symbol.for('createRef');
     const { result } = renderHook(() => {
-      const ref = createRef<Symbol>();
+      const ref = createRef<symbol>();
       useAptor(ref, { instantiate, getAPI });
       return ref;
     });
     expect(result.current.current).toBe(Symbol.for('createRef'));
   });
 
-  test('The old class base ref function should work', () => {
+  it('Should set the current for the old-base ref-setters as ref argument', () => {
     const getAPI = () => () => Symbol.for('old-ref-function');
     const { result } = renderHook(() => {
       const oldRef = jest.fn(($node) => $node);

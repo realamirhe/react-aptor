@@ -1,8 +1,8 @@
+import path from 'path';
 import babelPlugin from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
-import path from 'path';
 import esbuild from 'rollup-plugin-esbuild';
 import { terser } from 'rollup-plugin-terser';
 const createBabelConfig = require('./babel.config');
@@ -113,9 +113,11 @@ function createSystemConfig(input, output, env) {
 export default function (args) {
   // NOTE: this configs is for future extensibility now the c `config` is always treated as `index`
   let c = Object.keys(args).find((key) => key.startsWith('config-'));
-  if (c)
+  if (c) {
     c = { hook: 'use-aptor' }[c.slice('config-'.length).replace(/_/g, '/')];
-  else c = 'index';
+  } else {
+    c = 'index';
+  }
 
   return [
     ...(c === 'index' ? [createDeclarationConfig(`src/${c}.ts`, 'dist')] : []),

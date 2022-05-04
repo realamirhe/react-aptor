@@ -72,5 +72,3 @@ export function useAptor<
 
   return domRef;
 }
-
-export default useAptor;

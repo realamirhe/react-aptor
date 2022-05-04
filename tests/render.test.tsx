@@ -1,6 +1,6 @@
+import { DependencyList, createRef } from 'react';
 import { renderHook } from '@testing-library/react-hooks';
-import { createRef, DependencyList } from 'react';
-import useAptor, { APIGenerator, GetAPI } from 'react-aptor';
+import { APIGenerator, GetAPI, useAptor } from 'react-aptor';
 
 describe('Basic re-rendering', () => {
   beforeEach(() => jest.clearAllMocks());
@@ -18,7 +18,7 @@ describe('Basic re-rendering', () => {
   );
   const destroy = jest.fn<void, [TInstance | null, TParams?]>();
 
-  test('Changing non dependant must not cause any extra call change', () => {
+  it('Should not cause any extra call change when non dependant arguments change', () => {
     const { rerender } = renderHook((configs) => useAptor(ref, configs), {
       initialProps: {
         instantiate,
@@ -64,7 +64,7 @@ describe('Basic re-rendering', () => {
     expect(newDestroy).toBeCalledTimes(0);
   });
 
-  test('Rerender must cause the corresponding life-cycle to be called', async () => {
+  it('Should call corresponding life-cycle in the rerendering phase', async () => {
     const { rerender } = renderHook(
       ({
         deps,
@@ -99,7 +99,7 @@ describe('Basic re-rendering', () => {
   });
 
   // FIXME: this needs to be fixed
-  test.skip('Changing array dependency must cause any extra call change', async () => {
+  it.skip('Should call corresponding life-cycle when deps array changes', async () => {
     const { rerender, result, waitFor } = renderHook(
       ({ getAPI, deps }) => {
         const ref = createRef();
