@@ -8,18 +8,18 @@ Minimal API Connector for react
   <img src="https://img.shields.io/badge/Side%20Effect%20Free-ffeb3b" alt="side-effect free" />
 </p>	
 <p align="center">
-  <a href="https://github.com/realamirhe/react-aptor/blob/master/license">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="license" />
-  </a>
   <a href="https://npmjs.org/package/react-aptor">
     <img src="https://img.shields.io/npm/dt/react-aptor.svg" alt="downloads" />
   </a>
   <a href="https://bundlephobia.com/result?p=react-aptor">
     <img src="https://img.shields.io/bundlephobia/minzip/react-aptor.svg" alt="bundle size" />
-</a>
+  </a>
   <a href="https://lgtm.com/projects/g/realamirhe/react-aptor/context:javascript">
     <img src="https://img.shields.io/lgtm/grade/javascript/g/realamirhe/react-aptor.svg?logo=lgtm&logoWidth=18" alt="Language grade: JavaScript" />
-</a>
+  </a>
+  <a href="https://paka.dev/npm/react-aptor@latest/api">
+    <img src="https://paka.dev/badges/v0/cute.svg" alt="Docs" />
+  </a>
 </p>
 
 ---
