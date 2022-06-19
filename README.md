@@ -356,11 +356,11 @@ React dependencies array for re-instantiating your third-party packages. It will
 
 ## Color Palettes
 
-![#c7589e](https://via.placeholder.com/30/c7589e/000000?text=+ '#c7589e')
-![#ed5b6e](https://via.placeholder.com/30/ed5b6e/000000?text=+ '#ed5b6e')
-![#f9b919](https://via.placeholder.com/30/f9b919/000000?text=+ '#f9b919')
-![#26abe2](https://via.placeholder.com/30/26abe2/000000?text=+ '#26abe2')
-![#129f4d](https://via.placeholder.com/30/129f4d/000000?text=+ '#129f4d')
+![#c7589e](https://i.stack.imgur.com/YuJd9.png '#c7589e')
+![#ed5b6e](https://i.stack.imgur.com/7ssUA.png '#ed5b6e')
+![#f9b919](https://i.stack.imgur.com/31VUW.png '#f9b919')
+![#26abe2](https://i.stack.imgur.com/y3o2u.png '#26abe2')
+![#129f4d](https://i.stack.imgur.com/mWeRk.png '#129f4d')
 
 ## Samples
 
