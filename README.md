@@ -348,8 +348,8 @@ React dependencies array for re-instantiating your third-party packages. It will
 
 ## **Donation**
 
-💻 Developer/Maintainer (**BTC**):
-`1KMz71heaNaE6myAssRH54rUKXPdbwZp5j`
+💻 Developer/Maintainer (**USDT (TRC20)**):
+`TZ4AV6MF79Hp6zUtvLUMqRqtDw6BcZeypS`
 
 🎨 Designer (**BTC**):
 `bc1q9fahyct3lrdz47pjf4kfxvsyum2dm74v2hv9xl`
